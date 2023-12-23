@@ -201,59 +201,68 @@ public class Board extends JPanel {
 
         //Set Price for the Top Board
         st1.setPrice(100);
-        st1.setRentPrice(10);
+        st1.setRentPrice(80);
 
         st2.setPrice(100);
-        st2.setRentPrice(10);
+        st2.setRentPrice(80);
 
-        st5.setPrice(100);
-        st5.setRentPrice(10);
+        st4.setPrice(200);
+        st4.setRentPrice(160);
+
+        st5.setPrice(140);
+        st5.setRentPrice(100);
 
         st6.setPrice(140);
-        st6.setRentPrice(14);
+        st6.setRentPrice(100);
 
 
         //Set Price for the Right Board
 
-        sr0.setPrice(300);
-        sr0.setRentPrice(30);
+        sr0.setPrice(160);
+        sr0.setRentPrice(120);
 
         sr1.setPrice(160);
-        sr1.setRentPrice(16);
+        sr1.setRentPrice(120);
 
-        sr4.setPrice(160);
-        sr4.setRentPrice(16);
+        sr3.setPrice(200);
+        sr3.setRentPrice(160);
+        
+        sr4.setPrice(180);
+        sr4.setRentPrice(130);
 
-        sr5.setPrice(160);
-        sr5.setRentPrice(16);
+        sr5.setPrice(180);
+        sr5.setRentPrice(130);
 
         //Set Price for the Bottom Board
 
-        sb0.setPrice(180);
-        sb0.setRentPrice(18);
+        sb0.setPrice(200);
+        sb0.setRentPrice(160);
 
-        sb1.setPrice(180);
-        sb1.setRentPrice(18);
+        sb1.setPrice(200);
+        sb1.setRentPrice(160);
 
-        sb4.setPrice(200);
-        sb4.setRentPrice(20);
+        sb3.setPrice(250);
+        sb3.setRentPrice(200);
 
-        sb5.setPrice(200);
-        sb5.setRentPrice(20);
+        sb4.setPrice(220);
+        sb4.setRentPrice(180);
+
+        sb5.setPrice(220);
+        sb5.setRentPrice(180);
 
         // Set Price for the Left Board
 
-        sl0.setPrice(220);
-        sl0.setRentPrice(22);
+        sl0.setPrice(250);
+        sl0.setRentPrice(200);
 
-        sl1.setPrice(300);
-        sl1.setRentPrice(30);
+        sl1.setPrice(250);
+        sl1.setRentPrice(200);
 
-        sl4.setPrice(320);
-        sl4.setRentPrice(32);
+        sl4.setPrice(300);
+        sl4.setRentPrice(250);
 
-        sl5.setPrice(330);
-        sl5.setRentPrice(33);
+        sl5.setPrice(300);
+        sl5.setRentPrice(250);
         
         JLabel labelMonopoly = new JLabel("MONOPOLY"){
             protected void paintComponent(Graphics g) {
