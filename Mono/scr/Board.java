@@ -200,32 +200,29 @@ public class Board extends JPanel {
         allSquares.add(sl5);
 
         //Set Price for the Top Board
-
         st1.setPrice(100);
         st1.setRentPrice(10);
 
         st2.setPrice(100);
         st2.setRentPrice(10);
 
-        st3.setPrice(100);
-        st3.setRentPrice(10);
-
-        st5.setPrice(140);
-        st5.setRentPrice(14);
+        st5.setPrice(100);
+        st5.setRentPrice(10);
 
         st6.setPrice(140);
         st6.setRentPrice(14);
 
+
         //Set Price for the Right Board
 
-        sr1.setPrice(300);
-        sr1.setRentPrice(30);
+        sr0.setPrice(300);
+        sr0.setRentPrice(30);
 
-        sr2.setPrice(160);
-        sr2.setRentPrice(16);
+        sr1.setPrice(160);
+        sr1.setRentPrice(16);
 
-        sr3.setPrice(160);
-        sr3.setRentPrice(16);
+        sr4.setPrice(160);
+        sr4.setRentPrice(16);
 
         sr5.setPrice(160);
         sr5.setRentPrice(16);
@@ -238,9 +235,6 @@ public class Board extends JPanel {
         sb1.setPrice(180);
         sb1.setRentPrice(18);
 
-        sb2.setPrice(180);
-        sb2.setRentPrice(18);
-
         sb4.setPrice(200);
         sb4.setRentPrice(20);
 
@@ -252,18 +246,15 @@ public class Board extends JPanel {
         sl0.setPrice(220);
         sl0.setRentPrice(22);
 
-        sl2.setPrice(300);
-        sl2.setRentPrice(30);
-
-        sl3.setPrice(320);
-        sl3.setRentPrice(32);
+        sl1.setPrice(300);
+        sl1.setRentPrice(30);
 
         sl4.setPrice(320);
         sl4.setRentPrice(32);
 
         sl5.setPrice(330);
         sl5.setRentPrice(33);
-
+        
         JLabel labelMonopoly = new JLabel("MONOPOLY"){
             protected void paintComponent(Graphics g) {
                 Graphics2D g2 = (Graphics2D)g;
