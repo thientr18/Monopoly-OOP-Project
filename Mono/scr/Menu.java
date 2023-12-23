@@ -37,14 +37,14 @@ public class Game{
         con = Monopoly.getContentPane();
 
         titleNamePanel = new JPanel();
-        titleNamePanel.setBounds(100,100,600,150);
+        titleNamePanel.setBounds(100,200,600,150);
         titleNamePanel.setBackground(Color.BLACK);
         titleNameLabel = new JLabel("MONOPOLY");
         titleNameLabel.setForeground(Color.WHITE);
         titleNameLabel.setFont(titleFon);
 
         startButtonPanel = new JPanel();
-        startButtonPanel.setBounds(300, 400, 200, 100);
+        startButtonPanel.setBounds(300, 300, 200, 100);
         startButtonPanel.setBackground(Color.BLACK);
 
         startButton = new JButton("START");
@@ -64,13 +64,13 @@ public class Game{
         startButtonPanel.setVisible(false);
 
         mainTextPanel = new JPanel();
-        mainTextPanel.setBounds(150, 0, 500, 250);
-        mainTextPanel.setBackground(Color.blue);
+        mainTextPanel.setBounds(150, 100, 500, 250);
+        mainTextPanel.setBackground(Color.BLACK);
         con.add(mainTextPanel);
 
         mainTextArea = new JTextArea("YOU WIN GAME");
-        mainTextArea.setBounds(150, 0, 500, 250);
-        mainTextArea.setBackground(Color.GREEN);
+        mainTextArea.setBounds(150, 300, 500, 250);
+        mainTextArea.setBackground(Color.BLACK);
         mainTextArea.setForeground(Color.white);
         mainTextArea.setFont(gameFon);
         mainTextArea.setLineWrap(true);
@@ -78,7 +78,7 @@ public class Game{
 
         choiceButtonPanel = new JPanel();
         choiceButtonPanel.setBounds(250, 350, 300, 150);
-        choiceButtonPanel.setBackground(Color.BLUE);
+        choiceButtonPanel.setBackground(Color.BLACK);
         choiceButtonPanel.setLayout(new GridLayout(2,1));
         con.add(choiceButtonPanel);
 
