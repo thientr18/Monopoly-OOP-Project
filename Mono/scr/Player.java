@@ -10,8 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-import Mono.GameMain;
-
 public class Player extends JPanel {
     
     private int playerNumber;
@@ -67,7 +65,7 @@ public class Player extends JPanel {
     }
 
     public Player(int xCoord, int yCoord, int width, int height) {
-        setBorder(getBorder());
+        setBorder(new LineBorder(new Color(0, 0, 0)));
         setBounds(xCoord, yCoord, 20, 20);
         this.setLayout(null);
     }
@@ -86,13 +84,25 @@ public class Player extends JPanel {
         super.paintComponent(graphics);
     }
 
-    int[] xLocationsOfPlayer1 = {};
+    int[] xLocationsOfPlayer1 = {24, 104, 184, 264, 344, 424, 504, 584,
+                                584, 584, 584, 584, 584, 584, 584,
+                                504, 424, 344, 264, 184, 104, 24,
+                                24, 24, 24, 24, 24, 24};
 
-    int[] yLocationsOfPlayer1 = {};
+    int[] yLocationsOfPlayer1 = {14, 14, 14, 14, 14, 14, 14, 14,
+                                94, 174, 254, 334, 414, 494, 574,
+                                574, 574, 574, 574, 574, 574, 574,
+                                494, 414, 334, 254, 174, 94};
 
-    int[] xLocationsOfPlayer2 = {};
+    int[] xLocationsOfPlayer2 = {64, 144, 224, 304, 384, 464, 544, 624,
+                                624, 624, 624, 624, 624, 624, 624,
+                                544, 464, 384, 304, 224, 144, 64,
+                                64, 64, 64, 64, 64, 64};
 
-    int[] yLocationsOfPlayer2 = {};
+    int[] yLocationsOfPlayer2 = {14, 14, 14, 14, 14, 14, 14, 14,
+                                94, 174, 254, 334, 414, 494, 574,
+                                574, 574, 574, 574, 574, 574, 574,
+                                494, 414, 334, 254, 174, 94};
 
     public void move(int dicesTotal) {
         if (currentSquareNumber + dicesTotal > 27) {
@@ -109,9 +119,9 @@ public class Player extends JPanel {
             this.setLocation(xLocationsOfPlayer2[targetSquare], yLocationsOfPlayer2[targetSquare]);
         }
 
-        if (ledger.containsKey(this.getCurrentSquareNumber())) {
-            Interact.infoConsole.setText("This property belongs to player "+ledger.get(this.getCurrentSquareNumber()));
-        }
+        // if (ledger.containsKey(this.getCurrentSquareNumber())) {
+        //     Interact.infoConsole.setText("This property belongs to player " + ledger.get(this.getCurrentSquareNumber()));
+        // }
     }
 
 /*
@@ -120,5 +130,95 @@ public class Player extends JPanel {
  * (2) currently unused, found a better way
  */
 
+    public int getCurrentSquareNumberByCoordinates() {
 
+        int x = this.getX();
+        int y = this.getY();
+
+        if (x < 80) {
+            if (y < 80) {
+                return 0;
+            }
+            else if (y > 80 && y < 160) {
+                return 27;
+            }
+            else if (y > 160 && y < 240) {
+                return 26;
+            }
+            else if (y > 240 && y < 320) {
+                return 25;
+            }
+            else if (y > 320 && y < 400) {
+                return 24;
+            }
+            else if (y > 400 && y < 480) {
+                return 23;
+            }
+            else if (y > 480 && y < 560) {
+                return 22;
+            }
+            else return 21;
+		}
+        else if (x > 80 && x < 160) {
+            if (y < 80) {
+                return 1;
+            }
+            else return 20;
+        }
+        else if (x > 160 && x < 240) {
+            if (y < 80) {
+                return 2;
+            }
+            else return 19;
+        }
+        else if (x > 240 && x < 320) {
+            if (y < 80) {
+                return 3;
+            }
+            else return 18;
+        }
+        else if (x > 320 && x < 400) {
+            if (y < 80) {
+                return 4;
+            }
+            else return 17;
+        }
+        else if (x > 400 && x < 480) {
+            if (y < 80) {
+                return 5;
+            }
+            else return 16;
+        }
+        else if (x > 480 && x < 560) {
+            if (y < 80) {
+                return 6;
+            }
+            else return 15;
+        }
+        else {
+            if (y < 80) {
+                return 7;
+            }
+            else if (y > 80 && y < 160) {
+                return 8;
+            }
+            else if (y > 160 && y < 240) {
+                return 9;
+            }
+            else if (y > 240 && y < 320) {
+                return 10;
+            }
+            else if (y > 320 && y < 400) {
+                return 11;
+            }
+            else if (y > 400 && y < 480) {
+                return 12;
+            }
+            else if (y > 480 && y < 560) {
+                return 13;
+            }
+            else return 14;
+
+        }
+    }
 }
