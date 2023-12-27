@@ -23,10 +23,13 @@ public class Game{
     JButton startButton, choice1, choice2;
     JTextArea mainTextArea;
 
-    titleScreenHandler tsHandler = new titleScreenHandler();
+    TitleScreenHandler tsHandler = new TitleScreenHandler();
+
+   
     public static void main(String[] args) {
         new Game();
     }
+
     public Game(){
         Monopoly = new JFrame();
         Monopoly.setSize(800,600);
@@ -50,8 +53,10 @@ public class Game{
         startButton = new JButton("START");
         startButton.setBackground(Color.BLACK);
         startButton.setForeground(Color.WHITE);
-        startButton.setFont(normalFon); 
+        startButton.setFont(normalFon);
         startButton.addActionListener(tsHandler);
+
+       
 
         titleNamePanel.add(titleNameLabel);
         startButtonPanel.add(startButton);
@@ -92,15 +97,13 @@ public class Game{
         choice2.setForeground(Color.WHITE);
         choice2.setFont(normalFon);
         choiceButtonPanel.add(choice2);
+         }
+         public class TitleScreenHandler implements ActionListener{
+            public void actionPerformed(ActionEvent event){
+                endGame();
 
-    }
-    public class titleScreenHandler implements ActionListener{
-        public void actionPerformed(ActionEvent event){
-
-            endGame();
-
-        }
+            }
+         }
     }
     
     
-}
