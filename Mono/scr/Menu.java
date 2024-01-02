@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-public class Game{
+public class Menu{
     JFrame Monopoly;
     Container con;
     JPanel titleNamePanel, startButtonPanel, mainTextPanel, choiceButtonPanel;
@@ -25,12 +25,9 @@ public class Game{
 
     TitleScreenHandler tsHandler = new TitleScreenHandler();
 
-   
-    public static void main(String[] args) {
-        new Game();
-    }
 
-    public Game(){
+
+    public Menu(){
         Monopoly = new JFrame();
         Monopoly.setSize(800,600);
         Monopoly.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
