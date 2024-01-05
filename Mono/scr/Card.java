@@ -121,7 +121,7 @@ public class Card {
 			case 6:
 				go();
 				break;
-			case 8:
+			case 7:
 				beauty();
 				break;
 			default:
