@@ -68,32 +68,4 @@ public class Cards {
 
         deck.initialize(cards);
     }
-
-    // Draw next card
-    public Card drawCard() {
-        return deck.drawCard();
-    }
-
-    public int cost() {
-		return 0;
-	}
-
-	public void purchase(Player player) {
-	}
-
-	public int rent(int val) {
-		return 0;
-	}
-
-	public Player owner() {
-		return null;
-	}
-
-	public String toString() {
-		return name;
-	}
-
-	public Iterable<Card> cards() {
-		return deck.cards();
-	}
 }   
