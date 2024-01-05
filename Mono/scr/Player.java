@@ -112,7 +112,7 @@ public class Player extends JPanel {
         int targetSquare = (currentSquareNumber + dicesTotal) % 28;
         currentSquareNumber = targetSquare;
 
-        if (Interact.nowPlaying == 0) {
+        if (MonopolyExe.nowPlaying == 0) {
             this.setLocation(xLocationsOfPlayer1[targetSquare], yLocationsOfPlayer1[targetSquare]);
         }
         else {
