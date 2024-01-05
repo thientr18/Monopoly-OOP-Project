@@ -1,4 +1,4 @@
-package Mono.scr;
+package source;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -32,21 +32,21 @@ public class Dice extends JPanel {
         else if(faceDice == 4){
             g.fillOval(getWidth()/2 - 15, getHeight()/2 + 10, 5, 5);
             g.fillOval(getWidth()/2 + 10, getHeight()/2 - 15, 5, 5);
-            g.fillOval(getWidth()/2 - 15, getHeight()/2 + 10, 5, 5);
-            g.fillOval(getWidth()/2 + 10, getHeight()/2 - 15, 5, 5);
+            g.fillOval(getWidth()/2 - 15, getHeight()/2 - 15, 5, 5);
+            g.fillOval(getWidth()/2 + 10, getHeight()/2 + 10, 5, 5);
         }
         else if(faceDice == 5){
             g.fillOval(getWidth()/2 - 15, getHeight()/2 + 10, 5, 5);
             g.fillOval(getWidth()/2 + 10, getHeight()/2 - 15, 5, 5);
-            g.fillOval(getWidth()/2 - 15, getHeight()/2 + 10, 5, 5);
-            g.fillOval(getWidth()/2 + 10, getHeight()/2 - 15, 5, 5);
+            g.fillOval(getWidth()/2 - 15, getHeight()/2 - 15, 5, 5);
+            g.fillOval(getWidth()/2 + 10, getHeight()/2 + 10, 5, 5);
             g.fillOval(getWidth()/2 - 5/2, getHeight()/2 - 5/2 , 5, 5);
         }
         else if(faceDice == 6){
             g.fillOval(getWidth()/2 - 15, getHeight()/2 + 10, 5, 5);
             g.fillOval(getWidth()/2 + 10, getHeight()/2 - 15, 5, 5);
-            g.fillOval(getWidth()/2 - 15, getHeight()/2 + 10, 5, 5);
-            g.fillOval(getWidth()/2 + 10, getHeight()/2 - 15, 5, 5);
+            g.fillOval(getWidth()/2 - 15, getHeight()/2 - 15, 5, 5);
+            g.fillOval(getWidth()/2 + 10, getHeight()/2 + 10, 5, 5);
             g.fillOval(getWidth()/2 - 15, getHeight()/2 - 5/2 , 5, 5);
             g.fillOval(getWidth()/2 + 10, getHeight()/2 - 5/2 , 5, 5);
         }
