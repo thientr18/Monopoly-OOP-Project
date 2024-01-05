@@ -1,4 +1,4 @@
-package source;
+package Mono.scr;
 
 import java.awt.CardLayout;
 import java.awt.Color;
