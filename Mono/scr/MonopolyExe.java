@@ -49,24 +49,24 @@ public class MonopolyExe extends JFrame{
         contentIncluder = new JPanel();
         contentIncluder.setBorder(new EmptyBorder(5,5,5, 5));
         setContentPane(contentIncluder);
-		contentIncluder.setLayout(null);
+	contentIncluder.setLayout(null);
 
         JLayeredPane layeredPane = new JLayeredPane();
         layeredPane.setBorder(new LineBorder(new Color(0, 0, 0)));
-		layeredPane.setBounds(4, 4, 648, 648);
-		contentIncluder.add(layeredPane);
+	layeredPane.setBounds(4, 4, 648, 648);
+	contentIncluder.add(layeredPane);
 
         gameBoard = new Board(4,4,648,648);
-		gameBoard.setBackground(new Color(51, 255, 153));
-		layeredPane.add(gameBoard, new Integer(0));
+	gameBoard.setBackground(new Color(51, 255, 153));
+	layeredPane.add(gameBoard, new Integer(0));
 
-		player1 = new Player(1, Color.RED);
-		players.add(player1);
-		layeredPane.add(player1, new Integer(1));
+	player1 = new Player(1, Color.RED);
+	players.add(player1);
+	layeredPane.add(player1, new Integer(1));
 
-		player2 = new Player(2, Color.BLUE);
-		players.add(player2);
-		layeredPane.add(player2, new Integer(1));
+	player2 = new Player(2, Color.BLUE);
+	players.add(player2);
+	layeredPane.add(player2, new Integer(1));
 
         JPanel right = new JPanel();
         right.setBackground(Color.GRAY);
@@ -247,53 +247,53 @@ public class MonopolyExe extends JFrame{
         test.setLayout(null);
 
         playerAssetsPanel = new JPanel();
-		playerAssetsPanel.setBounds(80, 30, 240, 180);
-		right.add(playerAssetsPanel);
-		playerAssetsPanel.setLayout(c1);
+	playerAssetsPanel.setBounds(80, 30, 240, 180);
+	right.add(playerAssetsPanel);
+	playerAssetsPanel.setLayout(c1);
 
         JPanel panelPlayer1 = new JPanel();
-		panelPlayer1.setBackground(Color.RED);
-		playerAssetsPanel.add(panelPlayer1, "1");
-		panelPlayer1.setLayout(null);
+	panelPlayer1.setBackground(Color.RED);
+	playerAssetsPanel.add(panelPlayer1, "1");
+	panelPlayer1.setLayout(null);
 
         JLabel panelPlayer1Title = new JLabel("Player 1 All Wealth");
-		panelPlayer1Title.setForeground(Color.WHITE);
-		panelPlayer1Title.setHorizontalAlignment(SwingConstants.CENTER);
-		panelPlayer1Title.setBounds(4, 4, 240, 15);
-		panelPlayer1.add(panelPlayer1Title);
+	panelPlayer1Title.setForeground(Color.WHITE);
+	panelPlayer1Title.setHorizontalAlignment(SwingConstants.CENTER);
+	panelPlayer1Title.setBounds(4, 4, 240, 15);
+	panelPlayer1.add(panelPlayer1Title);
 
         panelPlayer1TextArea = new JTextArea();
-		panelPlayer1TextArea.setBounds(10, 30, 220, 150);
-		panelPlayer1.add(panelPlayer1TextArea);
+	panelPlayer1TextArea.setBounds(10, 30, 220, 145);
+	panelPlayer1.add(panelPlayer1TextArea);
 
         //Player 2
 
         JPanel panelPlayer2 = new JPanel();
-		panelPlayer2.setBackground(Color.BLUE);
-		playerAssetsPanel.add(panelPlayer2, "2");
-		panelPlayer2.setLayout(null);
-		c1.show(playerAssetsPanel, ""+nowPlaying);
+	panelPlayer2.setBackground(Color.BLUE);
+	playerAssetsPanel.add(panelPlayer2, "2");
+	panelPlayer2.setLayout(null);
+	c1.show(playerAssetsPanel, ""+nowPlaying);
 
-		JLabel panelPlayer2Title = new JLabel("Player 2 All Wealth");
-		panelPlayer2Title.setForeground(Color.WHITE);
-		panelPlayer2Title.setHorizontalAlignment(SwingConstants.CENTER);
-		panelPlayer2Title.setBounds(0, 6, 240, 16);
-		panelPlayer2.add(panelPlayer2Title);
+	JLabel panelPlayer2Title = new JLabel("Player 2 All Wealth");
+	panelPlayer2Title.setForeground(Color.WHITE);
+	panelPlayer2Title.setHorizontalAlignment(SwingConstants.CENTER);
+	panelPlayer2Title.setBounds(0, 6, 240, 16);
+	panelPlayer2.add(panelPlayer2Title);
 
-		panelPlayer2TextArea = new JTextArea();
-		panelPlayer2TextArea.setBounds(10, 34, 230, 149);
-		panelPlayer2.add(panelPlayer2TextArea);
+	panelPlayer2TextArea = new JTextArea();
+	panelPlayer2TextArea.setBounds(10, 30, 220, 145);
+	panelPlayer2.add(panelPlayer2TextArea);
 
         updatePanelPlayer1TextArea();
         updatePanelPlayer2TextArea();
 
         infoConsole = new JTextArea();
-		infoConsole.setColumns(20);
-		infoConsole.setRows(5);
-		infoConsole.setBounds(6, 6, 234, 56);
-		test.add(infoConsole);
-		infoConsole.setLineWrap(true);
-		infoConsole.setText("PLayer 1 starts the game by clicking Roll Dice!");
+	infoConsole.setColumns(20);
+	infoConsole.setRows(5);
+	infoConsole.setBounds(6, 6, 234, 56);
+	test.add(infoConsole);
+	infoConsole.setLineWrap(true);
+	infoConsole.setText("PLayer 1 starts the game by clicking Roll Dice!");
 
 
     }
