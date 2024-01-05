@@ -1,4 +1,4 @@
-package source;
+package Mono.scr;
 
 import javax.swing.JFrame;
 
