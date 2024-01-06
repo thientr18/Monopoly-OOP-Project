@@ -247,10 +247,7 @@ public class MonopolyExe extends JFrame{
                 if (doubleDiceP1 || doubleDiceP2 ){
                     infoConsole.setText("Please click next turn to continue");
                 }
-                // else if (players.get(nowPlaying).getCurrentSquareNumber() == 4 || players.get(nowPlaying).getCurrentSquareNumber() == 11 || players.get(nowPlaying).getCurrentSquareNumber() == 18 || players.get(nowPlaying).getCurrentSquareNumber() == 25) {
-                //     infoConsole.setText("Please click Get Card to draw a card");
-                //     btnGetCard.setEnabled(true);
-                // }
+                
                 else {
                     infoConsole.setText("Please click!!!");
                 }
