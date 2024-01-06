@@ -58,15 +58,15 @@ public class MonopolyExe extends JFrame{
 
         gameBoard = new Board(4,4,648,648);
 	gameBoard.setBackground(new Color(51, 255, 153));
-	layeredPane.add(gameBoard, new Integer(0));
+	layeredPane.add(gameBoard, Integer.valueOf(0));
 
 	player1 = new Player(1, Color.RED);
 	players.add(player1);
-	layeredPane.add(player1, new Integer(1));
+	layeredPane.add(player1, Integer.valueOf(1));
 
 	player2 = new Player(2, Color.BLUE);
 	players.add(player2);
-	layeredPane.add(player2, new Integer(1));
+	layeredPane.add(player2, Integer.valueOf(1));
 
         JPanel right = new JPanel();
         right.setBackground(Color.GRAY);
@@ -125,9 +125,9 @@ public class MonopolyExe extends JFrame{
         btnPayRent.setEnabled(false);
 
         Dice dice1 = new Dice(279, 426, 40, 40);
-        layeredPane.add(dice1, new Integer(1));
+        layeredPane.add(dice1, Integer.valueOf(1));
         Dice dice2 = new Dice(329, 426, 40, 40);
-        layeredPane.add(dice2, new Integer(1));
+        layeredPane.add(dice2, Integer.valueOf(1));
 
         btnRoll = new JButton("Roll Dice");
         btnRoll.addActionListener(new ActionListener() {
@@ -207,7 +207,7 @@ public class MonopolyExe extends JFrame{
                     infoConsole.setText("Pleas click ");
                 }
                 layeredPane.remove(gameBoard);
-                layeredPane.add(gameBoard, new Integer(0));
+                layeredPane.add(gameBoard, Integer.valueOf(0));
                 updatePanelPlayer1TextArea();
                 updatePanelPlayer2TextArea();
             }
