@@ -20,9 +20,10 @@ public class MonopolyExe extends JFrame{
     private JPanel contentIncluder;
     static int turnCounter = 0;
     JButton btnNextTurn;
-    static JButton btnBuy;
-    static JButton btnPayRent;
+    JButton btnBuy;
+    JButton btnPayRent;
     JButton btnRoll;
+    JButton btnGetCard;
     CardLayout c1 = new CardLayout();
     static int nowPlaying = 0;
     ArrayList<Player> players = new ArrayList<Player>();
@@ -90,7 +91,7 @@ public class MonopolyExe extends JFrame{
                 updatePanelPlayer2TextArea();
             }
         });
-        btnBuy.setBounds(80, 480, 100, 20);
+        btnBuy.setBounds(40, 480, 100, 20);
         right.add(btnBuy);
         btnBuy.setEnabled(false);
 
@@ -101,32 +102,52 @@ public class MonopolyExe extends JFrame{
 
         btnPayRent = new JButton("Pay Rent");
         btnPayRent.addActionListener(new ActionListener() {
-
-			@Override
-		public void actionPerformed(ActionEvent e) {
-			Player currentPlayer = players.get(nowPlaying);
-			Player ownerOfTheSquare = players.get((Player.ledger.get(currentPlayer.getCurrentSquareNumber()))==1?0:1);
-			infoConsole.setText("You paid to the player "+ownerOfTheSquare.getPlayerNumber());
-	
-			int withdrawAmount = gameBoard.getAllSquare().get(currentPlayer.getCurrentSquareNumber()).getRentPrice();
-
-                if (withdrawAmount > currentPlayer.getWallet()){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Player currentPlayer = players.get(nowPlaying);
+                Player ownerOfTheSquare = players.get((Player.ledger.get(currentPlayer.getCurrentSquareNumber())) == 1 ? 0 : 1);
+                infoConsole.setText("You paid to the player " + ownerOfTheSquare.getPlayerNumber());
+        
+                int withdrawAmount = gameBoard.getAllSquare().get(currentPlayer.getCurrentSquareNumber()).getRentPrice();
+        
+                if (withdrawAmount > currentPlayer.getWallet()) {
                     infoConsole.setText("You do not have enough money to pay rent! That means you are LOSER");
+                    btnNextTurn.setEnabled(true);
+                    btnPayRent.setEnabled(false);
                 }
-		System.out.println(withdrawAmount);
                 currentPlayer.withdrawFromWallet(withdrawAmount);
-		ownerOfTheSquare.depositToWallet(withdrawAmount);
+                ownerOfTheSquare.depositToWallet(withdrawAmount);
                 btnNextTurn.setEnabled(true);
-		btnPayRent.setEnabled(false);
-				
-		updatePanelPlayer1TextArea();
-		updatePanelPlayer2TextArea();
-		}
-
-	});
-        btnPayRent.setBounds(220, 480, 100, 20);
+                btnPayRent.setEnabled(false);
+                updatePanelPlayer1TextArea();
+                updatePanelPlayer2TextArea();
+            }
+        });
+        btnPayRent.setBounds(150, 480, 100, 20);
         right.add(btnPayRent);
         btnPayRent.setEnabled(false);
+
+        btnGetCard = new JButton("Get Card");
+        btnGetCard.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                int currentSquareNumber = players.get(nowPlaying).getCurrentSquareNumber();
+                if (currentSquareNumber == 4 || currentSquareNumber == 18) {{
+                    Card card = new Card(Card.CardType.COMMUNITY, (int) (Math.random() * 8));
+                    infoConsole.setText(card.text());
+                    handleCardAction(card);
+                    
+                }} else if (currentSquareNumber == 11 || currentSquareNumber == 25) {{
+                    Card card = new Card(Card.CardType.CHANCE, (int) (Math.random() * 8));
+                    infoConsole.setText(card.text());
+                    handleCardAction(card);
+                    
+                }}
+
+            }
+        });
+        btnGetCard.setBounds(260, 480, 100, 20);
+        right.add(btnGetCard);
+        btnGetCard.setEnabled(false);
 
         Dice dice1 = new Dice(279, 426, 40, 40);
         layeredPane.add(dice1, Integer.valueOf(1));
@@ -149,11 +170,19 @@ public class MonopolyExe extends JFrame{
                         doubleDiceP1 = false;
                     }
                     player1.move(dicesTotal);
-                    if(Player.ledger.containsKey(player1.getCurrentSquareNumber()) && Player.ledger.get(player1.getCurrentSquareNumber()) != player1.getPlayerNumber()){
+                    if(Player.ledger.containsKey(player1.getCurrentSquareNumber()) && Player.ledger.get(player1.getCurrentSquareNumber()) != player1.getPlayerNumber() ){
                         btnBuy.setEnabled(false);
                         btnRoll.setEnabled(false);
                         btnNextTurn.setEnabled(false);
                         btnPayRent.setEnabled(true);
+                    }
+                    if (player1.getCurrentSquareNumber() == 4 || player1.getCurrentSquareNumber() == 11 || player1.getCurrentSquareNumber() == 18 || player1.getCurrentSquareNumber() == 25){
+                        btnGetCard.setEnabled(true);
+                        btnNextTurn.setEnabled(false);
+                    }
+                    else if (player1.getCurrentSquareNumber() != 4 || player1.getCurrentSquareNumber() != 11 || player1.getCurrentSquareNumber() != 18 || player1.getCurrentSquareNumber() != 25){
+                        btnGetCard.setEnabled(false);
+                        btnNextTurn.setEnabled(true);
                     }
                     if (Player.ledger.containsKey(player1.getCurrentSquareNumber()) && Player.ledger.get(player1.getCurrentSquareNumber()) == player1.getPlayerNumber()){
                         btnBuy.setEnabled(false);
@@ -164,6 +193,7 @@ public class MonopolyExe extends JFrame{
                         btnBuy.setEnabled(false);
                         btnNextTurn.setEnabled(true);
                     }
+                    
                     else if (!Player.ledger.containsKey(player1.getCurrentSquareNumber())){
                         btnBuy.setEnabled(true);
                         btnNextTurn.setEnabled(true);
@@ -189,6 +219,14 @@ public class MonopolyExe extends JFrame{
                         btnNextTurn.setEnabled(false);
                         btnPayRent.setEnabled(true);
                     }
+                    if (player2.getCurrentSquareNumber() == 4 || player2.getCurrentSquareNumber() == 11 || player2.getCurrentSquareNumber() == 18 || player2.getCurrentSquareNumber() == 25){
+                        btnGetCard.setEnabled(true);
+                        btnNextTurn.setEnabled(false);
+                    }
+                    else if (player2.getCurrentSquareNumber() != 4 || player2.getCurrentSquareNumber() != 11 || player2.getCurrentSquareNumber() != 18 || player2.getCurrentSquareNumber() != 25){
+                        btnGetCard.setEnabled(false);
+                        btnNextTurn.setEnabled(true);
+                    }
                     if (Player.ledger.containsKey(player2.getCurrentSquareNumber()) && Player.ledger.get(player2.getCurrentSquareNumber()) == player2.getPlayerNumber()){
                         btnBuy.setEnabled(false);
                         btnPayRent.setEnabled(false);
@@ -197,6 +235,8 @@ public class MonopolyExe extends JFrame{
                         btnBuy.setEnabled(false);
                         btnNextTurn.setEnabled(true);
                     }
+                    
+                    // The case the squares that have no owner.
                     else if (!Player.ledger.containsKey(player2.getCurrentSquareNumber())){
                         btnBuy.setEnabled(true);
                         btnNextTurn.setEnabled(true);
@@ -207,8 +247,12 @@ public class MonopolyExe extends JFrame{
                 if (doubleDiceP1 || doubleDiceP2 ){
                     infoConsole.setText("Please click next turn to continue");
                 }
+                // else if (players.get(nowPlaying).getCurrentSquareNumber() == 4 || players.get(nowPlaying).getCurrentSquareNumber() == 11 || players.get(nowPlaying).getCurrentSquareNumber() == 18 || players.get(nowPlaying).getCurrentSquareNumber() == 25) {
+                //     infoConsole.setText("Please click Get Card to draw a card");
+                //     btnGetCard.setEnabled(true);
+                // }
                 else {
-                    infoConsole.setText("Please click ");
+                    infoConsole.setText("Please click!!!");
                 }
                 layeredPane.remove(gameBoard);
                 layeredPane.add(gameBoard, Integer.valueOf(0));
@@ -272,7 +316,7 @@ public class MonopolyExe extends JFrame{
 
         //Player 2
 
-    	JPanel panelPlayer2 = new JPanel();
+    JPanel panelPlayer2 = new JPanel();
 	panelPlayer2.setBackground(Color.BLUE);
 	playerAssetsPanel.add(panelPlayer2, "2");
 	panelPlayer2.setLayout(null);
@@ -288,10 +332,10 @@ public class MonopolyExe extends JFrame{
 	panelPlayer2TextArea.setBounds(10, 30, 220, 145);
 	panelPlayer2.add(panelPlayer2TextArea);
 
-    	updatePanelPlayer1TextArea();
-    	updatePanelPlayer2TextArea();
+    updatePanelPlayer1TextArea();
+    updatePanelPlayer2TextArea();
 
-   	infoConsole = new JTextArea();
+    infoConsole = new JTextArea();
 	infoConsole.setColumns(20);
 	infoConsole.setRows(5);
 	infoConsole.setBounds(4, 4, 240, 60);
@@ -300,13 +344,35 @@ public class MonopolyExe extends JFrame{
 	infoConsole.setText("Player 1 starts the game by clicking Roll Dice!");
     
     
-	JLabel endGameLabel = new JLabel("");
-	endGameLabel.setHorizontalAlignment(SwingConstants.CENTER);
-	endGameLabel.setBounds(4, 70, 240, 20);
-	test.add(endGameLabel);
+    JLabel endGameLabel = new JLabel("");
+    endGameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+    endGameLabel.setBounds(4, 70, 240, 20);
+    test.add(endGameLabel);
 
 
     }
+
+    private void handleCardAction(Card card) {
+        switch (card.action()) {
+            case BANK_MONEY:
+                players.get(nowPlaying).depositToWallet(card.value());
+                break;
+            case MOVE_TO:
+                int currentSquareNumber = players.get(nowPlaying).getCurrentSquareNumber();
+                int travelTo = card.travelTo();
+                if (travelTo < currentSquareNumber) {
+                    players.get(nowPlaying).depositToWallet(200);
+                }
+                players.get(nowPlaying).move(travelTo - currentSquareNumber);
+                break;
+            default:
+                break;
+        }
+        updatePanelPlayer1TextArea();
+        updatePanelPlayer2TextArea();
+    }
+
+    
 
     public void updateInfoConsole(){
         String result = "";
