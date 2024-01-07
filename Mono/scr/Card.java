@@ -145,7 +145,7 @@ public class Card {
 	private void community() {
 		action = CardAction.MOVE_TO;
 		text = "Travel to Community";
-		travelTo = 3;
+		travelTo = 4;
 		increased = false;
 	}
 
