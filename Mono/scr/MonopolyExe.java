@@ -129,20 +129,21 @@ public class MonopolyExe extends JFrame{
 
         btnGetCard = new JButton("Get Card");
         btnGetCard.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
+		@Override
+            	public void actionPerformed(ActionEvent e){
                 int currentSquareNumber = players.get(nowPlaying).getCurrentSquareNumber();
-                if (currentSquareNumber == 4 || currentSquareNumber == 18) {{
+                if (currentSquareNumber == 4 || currentSquareNumber == 18) {
                     Card card = new Card(Card.CardType.COMMUNITY, (int) (Math.random() * 8));
                     infoConsole.setText(card.text());
                     handleCardAction(card);
-                    
-                }} else if (currentSquareNumber == 11 || currentSquareNumber == 25) {{
+                }
+		else if (currentSquareNumber == 11 || currentSquareNumber == 25) {
                     Card card = new Card(Card.CardType.CHANCE, (int) (Math.random() * 8));
                     infoConsole.setText(card.text());
                     handleCardAction(card);
-                    
-                }}
-
+                }
+		btnGetCard.setEnabled(false);
+		btnNextTurn.setEnabled(true);
             }
         });
         btnGetCard.setBounds(260, 480, 100, 20);
@@ -180,10 +181,6 @@ public class MonopolyExe extends JFrame{
                         btnGetCard.setEnabled(true);
                         btnNextTurn.setEnabled(false);
                     }
-                    else if (player1.getCurrentSquareNumber() != 4 || player1.getCurrentSquareNumber() != 11 || player1.getCurrentSquareNumber() != 18 || player1.getCurrentSquareNumber() != 25){
-                        btnGetCard.setEnabled(false);
-                        btnNextTurn.setEnabled(true);
-                    }
                     if (Player.ledger.containsKey(player1.getCurrentSquareNumber()) && Player.ledger.get(player1.getCurrentSquareNumber()) == player1.getPlayerNumber()){
                         btnBuy.setEnabled(false);
                         btnPayRent.setEnabled(false);
@@ -198,6 +195,7 @@ public class MonopolyExe extends JFrame{
                         btnBuy.setEnabled(true);
                         btnNextTurn.setEnabled(true);
                         btnPayRent.setEnabled(false);
+			btnGetCard.setEnabled(false);
                     }
                 }
                 else {
@@ -223,10 +221,6 @@ public class MonopolyExe extends JFrame{
                         btnGetCard.setEnabled(true);
                         btnNextTurn.setEnabled(false);
                     }
-                    else if (player2.getCurrentSquareNumber() != 4 || player2.getCurrentSquareNumber() != 11 || player2.getCurrentSquareNumber() != 18 || player2.getCurrentSquareNumber() != 25){
-                        btnGetCard.setEnabled(false);
-                        btnNextTurn.setEnabled(true);
-                    }
                     if (Player.ledger.containsKey(player2.getCurrentSquareNumber()) && Player.ledger.get(player2.getCurrentSquareNumber()) == player2.getPlayerNumber()){
                         btnBuy.setEnabled(false);
                         btnPayRent.setEnabled(false);
@@ -241,6 +235,7 @@ public class MonopolyExe extends JFrame{
                         btnBuy.setEnabled(true);
                         btnNextTurn.setEnabled(true);
                         btnPayRent.setEnabled(false);
+			btnGetCard.setEnabled(false);
                     }
                 }
                 btnRoll.setEnabled(false);
