@@ -39,6 +39,7 @@ public class MonopolyExe extends JFrame{
     Boolean doubleDiceP1 = false;
     Boolean doubleDiceP2 = false;
     JPanel playerAssetsPanel;
+    Boolean ReceivedCard = false;
 
     
 
@@ -62,13 +63,13 @@ public class MonopolyExe extends JFrame{
 	gameBoard.setBackground(new Color(51, 255, 153));
 	layeredPane.add(gameBoard, Integer.valueOf(0));
 
-	player1 = new Player(1, Color.RED);
-	players.add(player1);
-	layeredPane.add(player1, Integer.valueOf(1));
+        player1 = new Player(1, Color.RED);
+        players.add(player1);
+        layeredPane.add(player1, Integer.valueOf(1));
 
-	player2 = new Player(2, Color.BLUE);
-	players.add(player2);
-	layeredPane.add(player2, Integer.valueOf(1));
+        player2 = new Player(2, Color.BLUE);
+        players.add(player2);
+        layeredPane.add(player2, Integer.valueOf(1));
 
         JPanel right = new JPanel();
         right.setBackground(Color.GRAY);
@@ -109,7 +110,7 @@ public class MonopolyExe extends JFrame{
                 infoConsole.setText("You paid to the player " + ownerOfTheSquare.getPlayerNumber());
         
                 int withdrawAmount = gameBoard.getAllSquare().get(currentPlayer.getCurrentSquareNumber()).getRentPrice();
-        
+                
                 if (withdrawAmount > currentPlayer.getWallet()) {
                     infoConsole.setText("You do not have enough money to pay rent! That means you are LOSER");
                     btnNextTurn.setEnabled(true);
@@ -121,6 +122,7 @@ public class MonopolyExe extends JFrame{
                 btnPayRent.setEnabled(false);
                 updatePanelPlayer1TextArea();
                 updatePanelPlayer2TextArea();
+                
             }
         });
         btnPayRent.setBounds(150, 480, 100, 20);
@@ -129,21 +131,24 @@ public class MonopolyExe extends JFrame{
 
         btnGetCard = new JButton("Get Card");
         btnGetCard.addActionListener(new ActionListener() {
-		@Override
-            	public void actionPerformed(ActionEvent e){
+            @Override
+            public void actionPerformed(ActionEvent e){
                 int currentSquareNumber = players.get(nowPlaying).getCurrentSquareNumber();
                 if (currentSquareNumber == 4 || currentSquareNumber == 18) {
                     Card card = new Card(Card.CardType.COMMUNITY, (int) (Math.random() * 8));
                     infoConsole.setText(card.text());
                     handleCardAction(card);
+                    
                 }
-		else if (currentSquareNumber == 11 || currentSquareNumber == 25) {
+                else if (currentSquareNumber == 11 || currentSquareNumber == 25) {
                     Card card = new Card(Card.CardType.CHANCE, (int) (Math.random() * 8));
                     infoConsole.setText(card.text());
                     handleCardAction(card);
+                    
                 }
-		btnGetCard.setEnabled(false);
-		btnNextTurn.setEnabled(true);
+                btnGetCard.setEnabled(false);
+                btnNextTurn.setEnabled(true);
+
             }
         });
         btnGetCard.setBounds(260, 480, 100, 20);
@@ -195,7 +200,7 @@ public class MonopolyExe extends JFrame{
                         btnBuy.setEnabled(true);
                         btnNextTurn.setEnabled(true);
                         btnPayRent.setEnabled(false);
-			btnGetCard.setEnabled(false);
+                        btnGetCard.setEnabled(false);
                     }
                 }
                 else {
@@ -215,12 +220,14 @@ public class MonopolyExe extends JFrame{
                         btnBuy.setEnabled(false);
                         btnRoll.setEnabled(false);
                         btnNextTurn.setEnabled(false);
+                        btnGetCard.setEnabled(false);
                         btnPayRent.setEnabled(true);
                     }
                     if (player2.getCurrentSquareNumber() == 4 || player2.getCurrentSquareNumber() == 11 || player2.getCurrentSquareNumber() == 18 || player2.getCurrentSquareNumber() == 25){
                         btnGetCard.setEnabled(true);
                         btnNextTurn.setEnabled(false);
                     }
+                    
                     if (Player.ledger.containsKey(player2.getCurrentSquareNumber()) && Player.ledger.get(player2.getCurrentSquareNumber()) == player2.getPlayerNumber()){
                         btnBuy.setEnabled(false);
                         btnPayRent.setEnabled(false);
@@ -235,14 +242,13 @@ public class MonopolyExe extends JFrame{
                         btnBuy.setEnabled(true);
                         btnNextTurn.setEnabled(true);
                         btnPayRent.setEnabled(false);
-			btnGetCard.setEnabled(false);
+                        btnGetCard.setEnabled(false);
                     }
                 }
                 btnRoll.setEnabled(false);
                 if (doubleDiceP1 || doubleDiceP2 ){
                     infoConsole.setText("Please click next turn to continue");
                 }
-                
                 else {
                     infoConsole.setText("Please click!!!");
                 }
@@ -287,63 +293,60 @@ public class MonopolyExe extends JFrame{
         test.setLayout(null);
 
         playerAssetsPanel = new JPanel();
-	playerAssetsPanel.setBounds(80, 30, 240, 180);
-	right.add(playerAssetsPanel);
-	playerAssetsPanel.setLayout(c1);
+        playerAssetsPanel.setBounds(80, 30, 240, 180);
+        right.add(playerAssetsPanel);
+        playerAssetsPanel.setLayout(c1);
 
         JPanel panelPlayer1 = new JPanel();
-	panelPlayer1.setBackground(Color.RED);
-	playerAssetsPanel.add(panelPlayer1, "1");
-	panelPlayer1.setLayout(null);
+        panelPlayer1.setBackground(Color.RED);
+        playerAssetsPanel.add(panelPlayer1, "1");
+        panelPlayer1.setLayout(null);
 
         JLabel panelPlayer1Title = new JLabel("Player 1 All Wealth");
-	panelPlayer1Title.setForeground(Color.WHITE);
-	panelPlayer1Title.setHorizontalAlignment(SwingConstants.CENTER);
-	panelPlayer1Title.setBounds(4, 4, 240, 15);
-	panelPlayer1.add(panelPlayer1Title);
+        panelPlayer1Title.setForeground(Color.WHITE);
+        panelPlayer1Title.setHorizontalAlignment(SwingConstants.CENTER);
+        panelPlayer1Title.setBounds(4, 4, 240, 15);
+        panelPlayer1.add(panelPlayer1Title);
 
         panelPlayer1TextArea = new JTextArea();
-	panelPlayer1TextArea.setBounds(10, 30, 220, 145);
-	panelPlayer1.add(panelPlayer1TextArea);
+        panelPlayer1TextArea.setBounds(10, 30, 220, 145);
+        panelPlayer1.add(panelPlayer1TextArea);
 
         //Player 2
 
-    JPanel panelPlayer2 = new JPanel();
-	panelPlayer2.setBackground(Color.BLUE);
-	playerAssetsPanel.add(panelPlayer2, "2");
-	panelPlayer2.setLayout(null);
-	c1.show(playerAssetsPanel, ""+nowPlaying);
+        JPanel panelPlayer2 = new JPanel();
+        panelPlayer2.setBackground(Color.BLUE);
+        playerAssetsPanel.add(panelPlayer2, "2");
+        panelPlayer2.setLayout(null);
+        c1.show(playerAssetsPanel, ""+nowPlaying);
 
-	JLabel panelPlayer2Title = new JLabel("Player 2 All Wealth");
-	panelPlayer2Title.setForeground(Color.WHITE);
-	panelPlayer2Title.setHorizontalAlignment(SwingConstants.CENTER);
-	panelPlayer2Title.setBounds(0, 6, 240, 16);
-	panelPlayer2.add(panelPlayer2Title);
+        JLabel panelPlayer2Title = new JLabel("Player 2 All Wealth");
+        panelPlayer2Title.setForeground(Color.WHITE);
+        panelPlayer2Title.setHorizontalAlignment(SwingConstants.CENTER);
+        panelPlayer2Title.setBounds(0, 6, 240, 16);
+        panelPlayer2.add(panelPlayer2Title);
 
-	panelPlayer2TextArea = new JTextArea();
-	panelPlayer2TextArea.setBounds(10, 30, 220, 145);
-	panelPlayer2.add(panelPlayer2TextArea);
+        panelPlayer2TextArea = new JTextArea();
+        panelPlayer2TextArea.setBounds(10, 30, 220, 145);
+        panelPlayer2.add(panelPlayer2TextArea);
 
-    updatePanelPlayer1TextArea();
-    updatePanelPlayer2TextArea();
+        updatePanelPlayer1TextArea();
+        updatePanelPlayer2TextArea();
 
-    infoConsole = new JTextArea();
-	infoConsole.setColumns(20);
-	infoConsole.setRows(5);
-	infoConsole.setBounds(4, 4, 240, 60);
-	test.add(infoConsole);
-	infoConsole.setLineWrap(true);
-	infoConsole.setText("Player 1 starts the game by clicking Roll Dice!");
-    
-    
-    JLabel endGameLabel = new JLabel("");
-    endGameLabel.setHorizontalAlignment(SwingConstants.CENTER);
-    endGameLabel.setBounds(4, 70, 240, 20);
-    test.add(endGameLabel);
-
-
+        infoConsole = new JTextArea();
+        infoConsole.setColumns(20);
+        infoConsole.setRows(5);
+        infoConsole.setBounds(4, 4, 240, 60);
+        test.add(infoConsole);
+        infoConsole.setLineWrap(true);
+        infoConsole.setText("Player 1 starts the game by clicking Roll Dice!");
+        
+        
+        JLabel endGameLabel = new JLabel("");
+        endGameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        endGameLabel.setBounds(4, 70, 240, 20);
+        test.add(endGameLabel);
     }
-
     private void handleCardAction(Card card) {
         switch (card.action()) {
             case BANK_MONEY:
