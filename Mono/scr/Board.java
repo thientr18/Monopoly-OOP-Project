@@ -45,7 +45,7 @@ public class Board extends JPanel {
             "Community", 
             "Yen Bai",
             "Hai Phong", 
-            "Visit Prison",
+            "BAR CLUB",
 
             "Nghe An",
             "Ha Tinh",
@@ -53,7 +53,7 @@ public class Board extends JPanel {
             "Chance", 
             "Quang Tri",
             "Quang Binh", 
-            "Air Plane", 
+            "Car-Parking", 
 
             "Hue", 
             "Quang Nam", 
