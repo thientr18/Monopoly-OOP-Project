@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -52,16 +53,16 @@ public class MonopolyExe extends JFrame{
         contentIncluder = new JPanel();
         contentIncluder.setBorder(new EmptyBorder(5,5,5, 5));
         setContentPane(contentIncluder);
-	contentIncluder.setLayout(null);
+	    contentIncluder.setLayout(null);
 
         JLayeredPane layeredPane = new JLayeredPane();
         layeredPane.setBorder(new LineBorder(new Color(0, 0, 0)));
-	layeredPane.setBounds(4, 4, 648, 648);
-	contentIncluder.add(layeredPane);
+	    layeredPane.setBounds(4, 4, 648, 648);
+	    contentIncluder.add(layeredPane);
 
         gameBoard = new Board(4,4,648,648);
-	gameBoard.setBackground(new Color(51, 255, 153));
-	layeredPane.add(gameBoard, Integer.valueOf(0));
+	    gameBoard.setBackground(new Color(51, 255, 153));
+	    layeredPane.add(gameBoard, Integer.valueOf(0));
 
         player1 = new Player(1, Color.RED);
         players.add(player1);
@@ -79,7 +80,7 @@ public class MonopolyExe extends JFrame{
         right.setLayout(null);
 
 
-        btnBuy = new JButton("Buy");
+        btnBuy = new JButton(new ImageIcon("media/Buy.png"));
         btnBuy.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 Player currentPlayer = players.get(nowPlaying);
@@ -92,16 +93,16 @@ public class MonopolyExe extends JFrame{
                 updatePanelPlayer2TextArea();
             }
         });
-        btnBuy.setBounds(40, 480, 100, 20);
+        btnBuy.setBounds(40, 480, 100, 40);
         right.add(btnBuy);
         btnBuy.setEnabled(false);
 
-        btnNextTurn = new JButton("Next Turn");
-        btnNextTurn.setBounds(150, 580, 100, 30);
+        btnNextTurn = new JButton(new ImageIcon("media/nextTurn.png"));
+        btnNextTurn.setBounds(125, 580, 150, 40);
         right.add(btnNextTurn);
         btnNextTurn.setEnabled(false);
 
-        btnPayRent = new JButton("Pay Rent");
+        btnPayRent = new JButton(new ImageIcon("media/payRent.png"));
         btnPayRent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -125,11 +126,11 @@ public class MonopolyExe extends JFrame{
                 
             }
         });
-        btnPayRent.setBounds(150, 480, 100, 20);
+        btnPayRent.setBounds(150, 480, 100, 40);
         right.add(btnPayRent);
         btnPayRent.setEnabled(false);
-
-        btnGetCard = new JButton("Get Card");
+        
+        btnGetCard = new JButton(new ImageIcon("media/getCard.png"));
         btnGetCard.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
@@ -151,7 +152,7 @@ public class MonopolyExe extends JFrame{
 
             }
         });
-        btnGetCard.setBounds(260, 480, 100, 20);
+        btnGetCard.setBounds(260, 480, 100, 40);
         right.add(btnGetCard);
         btnGetCard.setEnabled(false);
 
@@ -160,7 +161,7 @@ public class MonopolyExe extends JFrame{
         Dice dice2 = new Dice(329, 426, 40, 40);
         layeredPane.add(dice2, Integer.valueOf(1));
 
-        btnRoll = new JButton("Roll Dice");
+        btnRoll = new JButton(new ImageIcon("media/Roll.png"));
         btnRoll.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 if (nowPlaying == 0){
@@ -258,7 +259,7 @@ public class MonopolyExe extends JFrame{
                 updatePanelPlayer2TextArea();
             }
         });
-        btnRoll.setBounds(150, 520, 100, 30);
+        btnRoll.setBounds(125, 530, 150, 40);
         right.add(btnRoll);
 
         btnNextTurn.addActionListener(new ActionListener() {
