@@ -1,4 +1,4 @@
-package Mono.scr;
+package src;
 
 public class Card {
 	private CardType type;
