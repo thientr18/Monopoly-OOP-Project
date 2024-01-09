@@ -1,4 +1,4 @@
-package Mono.src;
+package src;
 
 // Interface for decks and cards
 interface Deck {
