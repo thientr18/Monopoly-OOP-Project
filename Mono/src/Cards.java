@@ -1,4 +1,4 @@
-package Mono.src;
+package src;
 
 public class Cards {
     private final int DECK_SIZE = 8; //8 cards in either type of deck
