@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,9 +21,11 @@ public class Menu{
     Font titleFon = new Font("Arial", Font.PLAIN, 60);
     Font normalFon = new Font("Arial", Font.PLAIN, 30);
     Font gameFon = new Font("Arial", Font.PLAIN, 65);
-    JButton startButton, choice1, choice2;
+    JButton startButton, ruleButton, restartButton, exitButton;
     JTextArea mainTextArea;
+    ImageIcon image;
 
+    OptionScreenHandler opHandler = new OptionScreenHandler();
     TitleScreenHandler tsHandler = new TitleScreenHandler();
 
 
@@ -53,14 +56,48 @@ public class Menu{
         startButton.setFont(normalFon);
         startButton.addActionListener(tsHandler);
 
+        ruleButtonPanel = new JPanel();
+        ruleButtonPanel.setBounds(300,400,200,100);
+        ruleButtonPanel.setBackground(Color.BLACK);
+
+        ruleButton = new JButton("RULE");
+        ruleButton.setBackground(Color.BLACK);
+        ruleButton.setForeground(Color.WHITE);
+        ruleButton.setFont(normalFon);
+        ruleButton.addActionListener(opHandler);
        
 
         titleNamePanel.add(titleNameLabel);
         startButtonPanel.add(startButton);
+        ruleButtonPanel.add(ruleButton);
 
         con.add(titleNamePanel);
         con.add(startButtonPanel);
+        con.add(ruleButtonPanel);
+        
     }
+    public void ruleGame(){
+        ruleButtonPanel.setVisible(true);
+
+        Image = new JFrame();
+        Image.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        try{
+            image = new ImageIcon(getClass().getResource("GameRule.png"));
+            displayField = new JLabel(image);
+            Image.add(displayField);
+        }catch (Exception e){
+
+        }
+        Image.setSize(800,800);
+        Image.setVisible(true);
+        con.add(Image);
+
+     }
+     public class OptionScreenHandler implements ActionListener{
+            public void actionPerformed(ActionEvent event){
+                ruleGame();
+            }
+         }
     public void endGame(){
         titleNamePanel.setVisible(false);
         startButtonPanel.setVisible(false);
