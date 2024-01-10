@@ -174,7 +174,7 @@ public class MonopolyExe extends JFrame{
                         btnPayRent.setEnabled(true);
                         btnGetCard.setEnabled(false);
                     } 
-                    if (player1.getCurrentSquareNumber() == 4 || player1.getCurrentSquareNumber() == 11 || player1.getCurrentSquareNumber() == 18 || player1.getCurrentSquareNumber() == 25){
+                    if (gameBoard.getCardSquares().contains(gameBoard.getAllSquare().get(player1.getCurrentSquareNumber()))){
                         btnGetCard.setEnabled(true);
                         btnNextTurn.setEnabled(false);
                     }
