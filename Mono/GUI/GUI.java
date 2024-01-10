@@ -28,11 +28,11 @@ public class Menu extends JFrame {
         backgroundPanel.setLayout(null);
         frame.setContentPane(backgroundPanel);
 
-        JButton startButton = createButton("START GAME", image1, 700, 370, backgroundPanel);
-        JButton ruleButton = createButton("GAME RULE", image1, 700, 450, backgroundPanel);
-        JButton exitButton = createButton("EXIT GAME", image1, 700, 530, backgroundPanel);
+        JButton startButton = createButton("START", image1, 700, 370, backgroundPanel);
+        JButton ruleButton = createButton("RULE", image1, 700, 450, backgroundPanel);
+        JButton exitButton = createButton("EXIT", image1, 700, 530, backgroundPanel);
 
-        JButton returnButton = createButton("RETURN", image1, 600, 600, backgroundPanel);
+        JButton returnButton = createButton("BACK", image1, 600, 600, backgroundPanel);
         returnButton.setVisible(false);
 
         JPanel rulePanel = new JPanel();
