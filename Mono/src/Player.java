@@ -21,6 +21,9 @@ public class Player extends JPanel {
     private ArrayList<Integer> titilleDeeds = new ArrayList<Integer>(); // squares that the player owned
     private int wallet = 500; // Initial money
 
+    private boolean inJail;
+    private int jailTurn;
+    
     public ArrayList<Integer> getTitleDeeds() {
         return titilleDeeds;
     }
@@ -118,12 +121,25 @@ public class Player extends JPanel {
         else {
             this.setLocation(xLocationsOfPlayer2[targetSquare], yLocationsOfPlayer2[targetSquare]);
         }
-
-        // if (ledger.containsKey(this.getCurrentSquareNumber())) {
-        //     Interact.infoConsole.setText("This property belongs to player " + ledger.get(this.getCurrentSquareNumber()));
-        // }
     }
 
+    
+    public void toJail() {
+        inJail = true;
+        jailTurn = 0;
+    }
+
+    public void stayJail() {
+        jailTurn++;
+
+        if (jailTurn == 3) {
+            inJail = false;
+        }
+    }
+
+    public boolean inJail() {
+		return inJail;
+	}
 /*
  * By comparing player's coordinates according to the board, we will get it's
  * (1) current square number

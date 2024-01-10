@@ -157,8 +157,6 @@ public class MonopolyExe extends JFrame{
         btnRoll.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 if (nowPlaying == 0){
-                    int dice1_old = dice1.getFaceDice();
-                    int dice2_old = dice2.getFaceDice();
                     dice1.rollDice();
                     dice2.rollDice();
                     int dicesTotal = dice1.getFaceDice() + dice2.getFaceDice();
@@ -179,6 +177,12 @@ public class MonopolyExe extends JFrame{
                     if (player1.getCurrentSquareNumber() == 4 || player1.getCurrentSquareNumber() == 11 || player1.getCurrentSquareNumber() == 18 || player1.getCurrentSquareNumber() == 25){
                         btnGetCard.setEnabled(true);
                         btnNextTurn.setEnabled(false);
+                    }
+
+                    if (player2.inJail()) {
+                        btnRoll.setEnabled(false);
+                        btnNextTurn.setEnabled(true);
+                        player2.stayJail();
                     }
 
                     if (Player.ledger.containsKey(player1.getCurrentSquareNumber()) && Player.ledger.get(player1.getCurrentSquareNumber()) == player1.getPlayerNumber()){
@@ -215,8 +219,6 @@ public class MonopolyExe extends JFrame{
                     }
                 }
                 else {
-                    int dice1_old = dice1.getFaceDice();
-                    int dice2_old = dice2.getFaceDice();
                     dice1.rollDice();
                     dice2.rollDice();
                     int dicesTotal = dice1.getFaceDice() + dice2.getFaceDice();
@@ -240,6 +242,12 @@ public class MonopolyExe extends JFrame{
                         btnNextTurn.setEnabled(false);
                     }
                     
+                    if (player2.inJail()) {
+                        btnRoll.setEnabled(false);
+                        btnNextTurn.setEnabled(true);
+                        player2.stayJail();
+                    }
+
                     if (Player.ledger.containsKey(player2.getCurrentSquareNumber()) && Player.ledger.get(player2.getCurrentSquareNumber()) == player2.getPlayerNumber()){
                         btnBuy.setEnabled(false);
                         btnPayRent.setEnabled(false);
@@ -335,8 +343,7 @@ public class MonopolyExe extends JFrame{
 				} else if(!doubleDiceP1 && !doubleDiceP2) {
 					nowPlaying = (nowPlaying + 1) % 2;
 				}
-				
-				
+                
 				c1.show(playerAssetsPanel, ""+(nowPlaying==0 ? 1 : 2)); // maps 0 to 1 and 1 to 2
 				updatePanelPlayer1TextArea();
 				updatePanelPlayer2TextArea();
@@ -404,6 +411,14 @@ public class MonopolyExe extends JFrame{
         infoConsole.setLineWrap(true);
         infoConsole.setText("Player 1 starts the game by clicking Roll Dice!");  
         
+        // Check inJail
+        if (player1.getCurrentSquareNumber() == 21) {
+            player1.toJail();
+        }
+
+        if (player2.getCurrentSquareNumber() == 21) {
+            player2.toJail();
+        }
     }
 
     private void handleCardAction(Card card) {
