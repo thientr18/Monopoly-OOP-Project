@@ -1,27 +1,26 @@
 package src;
 
-import java.net.URL;
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Sound {
-
-    Clip clip;
-    URL soundUrl[] = new URL[30];
-
-    public Sound() {
-        soundUrl[0] = getClass().getResource("Mono\\media\\Sound_for_ThemeGame.wav");
-    }
+    private Clip clip;
     
-    public void setFile(int i) {
+    public Sound(String filename) {
         try {
-            AudioInputStream ais = AudioSystem.getAudioInputStream(soundUrl[i]);
+            File soundFile = new File(filename);
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
             clip = AudioSystem.getClip();
-            clip.open(ais);
-
-        } catch(Exception e) {
+            clip.open(audioIn);
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
         }
     }
 

@@ -18,8 +18,9 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.*;
 
-public class MonopolyExe extends JFrame{
+public class MonopolyExe extends JFrame {
     private JPanel contentIncluder;
     static int turnCounter = 0;
     JButton btnNextTurn;
@@ -44,14 +45,13 @@ public class MonopolyExe extends JFrame{
     JPanel playerAssetsPanel;
     Boolean ReceivedCard = false;
     JPanel winGame;
-
     
-    Sound sound = new Sound();
+    private Sound themeSound;
 
     public MonopolyExe() {
-
-        // Sound Theme
-        playMusic(0);
+        
+        themeSound = new Sound("Mono\\media\\Sound_for_ThemeGame.wav");
+        themeSound.loop();
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("MONOPOLY");
@@ -350,6 +350,7 @@ public class MonopolyExe extends JFrame{
                 updatePanelPlayer2TextArea();
             }
         });
+
         btnRoll.setBounds(125, 530, 150, 40);
         right.add(btnRoll);
 
@@ -478,22 +479,6 @@ public class MonopolyExe extends JFrame{
             result += " - "+ gameBoard.getAllSquare().get(player2.getTitleDeeds().get(i)).getName()+"\n";
         }
         panelPlayer2TextArea.setText(result);
-    }
-
-    public void playMusic(int i) {
-        sound.setFile(i);
-        sound.play();
-        sound.loop();
-    }
-
-    public void stopMusic(int i) {
-        sound.stop();
-    }
-
-    // Run sound without loop
-    public void playSE(int i) {
-        sound.setFile(i);
-        sound.play();
     }
     public static void main(String[] args) {
         MonopolyExe window = new MonopolyExe();
