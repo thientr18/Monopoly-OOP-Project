@@ -20,9 +20,6 @@ public class Player extends JPanel {
     private int currentSquareNumber = 0; // Player's current lcation on (0-27). Initially zero
     private ArrayList<Integer> titilleDeeds = new ArrayList<Integer>(); // squares that the player owned
     private int wallet = 500; // Initial money
-
-    private boolean inJail;
-    private int jailTurn;
     
     public ArrayList<Integer> getTitleDeeds() {
         return titilleDeeds;
@@ -43,6 +40,18 @@ public class Player extends JPanel {
     public void depositToWallet(int depositAmount) {
         wallet += depositAmount;
         System.out.println("Payday for player " + getPlayerNumber() + ". You earned $" + depositAmount + "!");
+        MonopolyExe.infoConsole.setText("Payday for player " + getPlayerNumber() + ". You earned $" + depositAmount + "!");
+    }
+
+    public void deductionToWallet(int depositAmount) {
+        wallet += depositAmount;
+        System.out.println("BAR CLUB paying for player " + getPlayerNumber() + ". You paid $" + depositAmount + "!");
+        MonopolyExe.infoConsole.setText("BAR CLUB paying for player " + getPlayerNumber() + ". You paid $" + depositAmount + "!");
+    }
+ 
+    public void travelToSTART() {
+        currentSquareNumber = 0;
+        System.out.println("You moved to START");
     }
 
     public int getCurrentSquareNumber() {
@@ -113,7 +122,19 @@ public class Player extends JPanel {
         }
 
         int targetSquare = (currentSquareNumber + dicesTotal) % 28;
+        
         currentSquareNumber = targetSquare;
+
+        if (targetSquare == 7) {
+            deductionToWallet(-50);
+        }
+
+        if (targetSquare == 21) {
+            targetSquare = 0;
+            currentSquareNumber = 0;
+            MonopolyExe.infoConsole.setText("content here");
+            System.out.println("Moved to START");
+        }
 
         if (MonopolyExe.nowPlaying == 0) {
             this.setLocation(xLocationsOfPlayer1[targetSquare], yLocationsOfPlayer1[targetSquare]);
@@ -122,24 +143,6 @@ public class Player extends JPanel {
             this.setLocation(xLocationsOfPlayer2[targetSquare], yLocationsOfPlayer2[targetSquare]);
         }
     }
-
-    
-    public void toJail() {
-        inJail = true;
-        jailTurn = 0;
-    }
-
-    public void stayJail() {
-        jailTurn++;
-
-        if (jailTurn == 3) {
-            inJail = false;
-        }
-    }
-
-    public boolean inJail() {
-		return inJail;
-	}
 /*
  * By comparing player's coordinates according to the board, we will get it's
  * (1) current square number

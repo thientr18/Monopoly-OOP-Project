@@ -5,7 +5,6 @@ public class Card {
 	private CardAction action;
 	private int value;
 	private int travelTo = Integer.MAX_VALUE;
-	private boolean increased;
 	private String text;
 
 	public Card(CardType type, int a) {
@@ -139,14 +138,12 @@ public class Card {
 		action = CardAction.MOVE_TO;
 		text = "Move to Go";
 		travelTo = 0;
-		increased = false;
 	}
 
 	private void community() {
 		action = CardAction.MOVE_TO;
 		text = "Travel to Community";
 		travelTo = 4;
-		increased = false;
 	}
 
 	private void poor() {
@@ -165,7 +162,6 @@ public class Card {
 		action = CardAction.MOVE_TO;
 		text = "Travel to HCM City";
 		travelTo = 27;
-		increased = false;
 	}
 
 	private void dividend() {
@@ -178,7 +174,6 @@ public class Card {
 		action = CardAction.MOVE_TO;
 		text = "Take a ride on the Nghe An";
 		travelTo = 8;
-		increased = false;
 	}
 
 	public int value() {
@@ -187,10 +182,6 @@ public class Card {
 
 	public int travelTo() {
 		return travelTo;
-	}
-
-	public boolean increased() {
-		return increased;
 	}
 
 	public String text() {

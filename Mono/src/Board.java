@@ -43,7 +43,7 @@ public class Board extends JPanel {
     }
     public void initializeSquare(){
         String[] squareNames = {
-            "Start", 
+            "START", 
             "Ha Giang",
             "Cao Bang",
             "Sea Port", 
@@ -66,7 +66,7 @@ public class Board extends JPanel {
             "Community", 
             "Vung Tau",
             "Tay Ninh", 
-            "Go to Jail",
+            "Go to START",
 
             "Danang",
             "Cantho",
