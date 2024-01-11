@@ -290,8 +290,6 @@ public class MonopolyExe extends JFrame{
                     else if (gameBoard.getUnableBuySquares().contains(gameBoard.getAllSquare().get(currentPlayer.getCurrentSquareNumber()))){
                         infoConsole.setText("Please click next turn, and you can continue");
                     }
-                    Player ownerOfTheSquare = players.get((Player.ledger.get(currentPlayer.getCurrentSquareNumber())) == 1 ? 0 : 1);
-                    infoConsole.setText("You paid to the player " + ownerOfTheSquare.getPlayerNumber()+ "\nRent Price:" + gameBoard.getAllSquare().get(currentPlayer.getCurrentSquareNumber()).getRentPrice());
                 }
                 else {
                     if(currentPlayer.getWallet() >= gameBoard.getAllSquare().get(currentPlayer.getCurrentSquareNumber()).getPrice()){
@@ -306,9 +304,6 @@ public class MonopolyExe extends JFrame{
                     else if (gameBoard.getUnableBuySquares().contains(gameBoard.getAllSquare().get(currentPlayer.getCurrentSquareNumber()))){
                         infoConsole.setText("Please click next turn to end your turn");
                     }
-                    Player ownerOfTheSquare = players.get((Player.ledger.get(currentPlayer.getCurrentSquareNumber())) == 1 ? 0 : 1);
-                    infoConsole.setText("You paid to the player " + ownerOfTheSquare.getPlayerNumber()+ "\nRent Price:" + gameBoard.getAllSquare().get(currentPlayer.getCurrentSquareNumber()).getRentPrice());
-                    
                 }
                 layeredPane.remove(gameBoard);
                 layeredPane.add(gameBoard, Integer.valueOf(0));
