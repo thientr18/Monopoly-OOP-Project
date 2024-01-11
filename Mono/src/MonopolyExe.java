@@ -46,7 +46,7 @@ public class MonopolyExe extends JFrame{
     private Sound themeSound, rollSound, nextTurnSound, buySound, paySound, cardSound;
 
     public MonopolyExe(){
-        themeSound = new Sound("media\\Sound_for_ThemeGame.wav");
+        themeSound = new Sound("Mono\\media\\Sound_for_ThemeGame.wav");
         themeSound.loop();
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -91,10 +91,10 @@ public class MonopolyExe extends JFrame{
 /*
 ----------------------------------Button to control the game---------------------------------------------------------------------------------------------------------------------------------------
 */
-        btnBuy = new JButton(new ImageIcon("media/Buy.png"));
+        btnBuy = new JButton(new ImageIcon("Mono\\media\\Buy.png"));
         btnBuy.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                buySound = new Sound("media/paySound.wav");
+                buySound = new Sound("Mono\\media\\paySound.wav");
                 buySound.play();
                 Player currentPlayer = players.get(nowPlaying);
                 infoConsole.setText("You bought "+gameBoard.getAllSquare().get(currentPlayer.getCurrentSquareNumber()).getName()+"\nPlease click next turn to continue");
@@ -110,12 +110,11 @@ public class MonopolyExe extends JFrame{
         right.add(btnBuy);
         btnBuy.setEnabled(false);
 
-
-        btnPayRent = new JButton(new ImageIcon("media/payRent.png"));
+        btnPayRent = new JButton(new ImageIcon("Mono\\media\\payRent.png"));
         btnPayRent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                paySound = new Sound("media/paySound.wav");
+                paySound = new Sound("Mono\\media\\paySound.wav");
                 paySound.play();
                 Player currentPlayer = players.get(nowPlaying);
                 Player ownerOfTheSquare = players.get((Player.ledger.get(currentPlayer.getCurrentSquareNumber())) == 1 ? 0 : 1);
@@ -126,19 +125,18 @@ public class MonopolyExe extends JFrame{
                 btnNextTurn.setEnabled(true);
                 btnPayRent.setEnabled(false);
                 updatePanelPlayer1TextArea();
-                updatePanelPlayer2TextArea();
-                
+                updatePanelPlayer2TextArea();                
             }
         });
         btnPayRent.setBounds(150, 480, 100, 40);
         right.add(btnPayRent);
         btnPayRent.setEnabled(false);
         
-        btnGetCard = new JButton(new ImageIcon("media/getCard.png"));
+        btnGetCard = new JButton(new ImageIcon("Mono\\media\\getCard.png"));
         btnGetCard.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                cardSound = new Sound("media/CardSound.wav");
+                cardSound = new Sound("Mono\\media\\CardSound.wav");
                 cardSound.play();
                 int currentSquareNumber = players.get(nowPlaying).getCurrentSquareNumber();
                 if (currentSquareNumber == 4 || currentSquareNumber == 18) {
@@ -159,16 +157,13 @@ public class MonopolyExe extends JFrame{
         right.add(btnGetCard);
         btnGetCard.setEnabled(false);
 
-        
-
-        btnRoll = new JButton(new ImageIcon("media/Roll.png"));
+        btnRoll = new JButton(new ImageIcon("Mono\\media\\Roll.png"));
         btnRoll.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                rollSound = new Sound("media/rollSoundButton.wav");
+                rollSound = new Sound("Mono\\media\\rollSoundButton.wav");
                 
-                if (nowPlaying == 0){
-                    
+                if (nowPlaying == 0){                   
                     dice1.rollDice();
                     dice2.rollDice();
                     
@@ -194,15 +189,12 @@ public class MonopolyExe extends JFrame{
                         btnNextTurn.setEnabled(false);
                     }
 
-
                     if (Player.ledger.containsKey(player1.getCurrentSquareNumber()) && Player.ledger.get(player1.getCurrentSquareNumber()) == player1.getPlayerNumber()){
                         btnBuy.setEnabled(false);
                         btnPayRent.setEnabled(false);
                         btnNextTurn.setEnabled(true);
                         btnGetCard.setEnabled(false);
-                    }
-
-                    
+                    }              
 
                     if (gameBoard.getUnableBuySquares().contains(gameBoard.getAllSquare().get(player1.getCurrentSquareNumber()))){
                         btnBuy.setEnabled(false);
@@ -224,12 +216,10 @@ public class MonopolyExe extends JFrame{
                         }
                     }
                 }
-                else {
-                    
+                else {      
                     dice1.rollDice();
                     dice2.rollDice();
-                   
-                    
+                             
                     int dicesTotal = dice1.getFaceDice() + dice2.getFaceDice();
                     if (dice1.getFaceDice()== dice2.getFaceDice()){
                         doubleDiceP2 = true;
@@ -253,16 +243,13 @@ public class MonopolyExe extends JFrame{
                         btnNextTurn.setEnabled(false);
                     }
 
-
                     if (Player.ledger.containsKey(player2.getCurrentSquareNumber()) && Player.ledger.get(player2.getCurrentSquareNumber()) == player2.getPlayerNumber()){
                         btnBuy.setEnabled(false);
                         btnPayRent.setEnabled(false);
                         btnNextTurn.setEnabled(true);
                         btnGetCard.setEnabled(false);
                     }
-
-                    
-                    
+              
                     // The case the squares unable to buy
                     if (gameBoard.getUnableBuySquares().contains(gameBoard.getAllSquare().get(player2.getCurrentSquareNumber()))){
                         btnBuy.setEnabled(false);
@@ -271,8 +258,7 @@ public class MonopolyExe extends JFrame{
                             btnBuy.setEnabled(false);
                             btnGetCard.setEnabled(true);
                             btnNextTurn.setEnabled(false);
-                        }
-                            
+                        }                    
                     }
                     // The case the squares that have no owner.
                     else if (!Player.ledger.containsKey(player2.getCurrentSquareNumber())){
@@ -333,11 +319,11 @@ public class MonopolyExe extends JFrame{
         btnRoll.setBounds(125, 530, 150, 40);
         right.add(btnRoll);
 
-        btnNextTurn = new JButton(new ImageIcon("media/nextTurn.png"));
+        btnNextTurn = new JButton(new ImageIcon("Mono\\media\\nextTurn.png"));
         btnNextTurn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-                nextTurnSound = new Sound("media/ClickSound.wav");
+                nextTurnSound = new Sound("Mono\\media\\ClickSound.wav");
                 nextTurnSound.play();
 				btnRoll.setEnabled(true);
 				btnBuy.setEnabled(false);
@@ -353,8 +339,7 @@ public class MonopolyExe extends JFrame{
 				} else if(!doubleDiceP1 && !doubleDiceP2) {
 					nowPlaying = (nowPlaying + 1) % 2;
 				}
-				
-				
+		
 				c1.show(playerAssetsPanel, ""+(nowPlaying==0 ? 1 : 2)); // maps 0 to 1 and 1 to 2
 				updatePanelPlayer1TextArea();
 				updatePanelPlayer2TextArea();
@@ -420,8 +405,7 @@ public class MonopolyExe extends JFrame{
         infoConsole.setBounds(4, 4, 240, 60);
         test.add(infoConsole);
         infoConsole.setLineWrap(true);
-        infoConsole.setText("Player 1 starts the game by clicking Roll Dice!");  
-        
+        infoConsole.setText("Player 1 starts the game by clicking Roll Dice!");          
     }
 
     private void handleCardAction(Card card) {
