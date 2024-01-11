@@ -219,13 +219,7 @@ public class MonopolyExe extends JFrame {
                         btnNextTurn.setEnabled(true);
                         btnPayRent.setEnabled(false);
                         btnGetCard.setEnabled(false);
-                    }
-                    else if (Player.ledger.containsKey(player1.getCurrentSquareNumber())){
-                        btnBuy.setEnabled(false);
-                        btnNextTurn.setEnabled(true);
-                        btnPayRent.setEnabled(false);
-                        btnGetCard.setEnabled(false);
-                        if (player1.getWallet() < gameBoard.getAllSquare().get(player1.getCurrentSquareNumber()).getPrice()){
+			if (player1.getWallet() < gameBoard.getAllSquare().get(player1.getCurrentSquareNumber()).getPrice()){
                             btnBuy.setEnabled(false);
                         }
                     }
