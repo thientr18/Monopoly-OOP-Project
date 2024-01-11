@@ -1,12 +1,14 @@
+package GUI;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class Menu extends JFrame {
+public class GUI extends JFrame {
 
     public static void main(String[] args) {
         
-        ImageIcon image1 = new ImageIcon("Button.png");
-        ImageIcon image2 = new ImageIcon("GameRule.png");
+        ImageIcon image1 = new ImageIcon("Mono\\media\\Button.png");
+        ImageIcon rule = new ImageIcon("Mono\\media\\GameRule.png");
 
         JFrame frame = new JFrame();
         frame.setTitle("MONOPOLY GAME");
@@ -19,8 +21,8 @@ public class Menu extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon imageIcon = new ImageIcon("echoImage.png");
-                Image image = imageIcon.getImage();
+                ImageIcon background = new ImageIcon("Mono\\media\\gui-background.jpg");
+                Image image = background.getImage();
                 g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
             }
         };
@@ -36,7 +38,7 @@ public class Menu extends JFrame {
         returnButton.setVisible(false);
 
         JPanel rulePanel = new JPanel();
-        JLabel ruleLabel = new JLabel(image2);
+        JLabel ruleLabel = new JLabel(rule);
         rulePanel.add(ruleLabel);
         rulePanel.setBounds(100, 100, 800, 500);
         rulePanel.setVisible(false);
