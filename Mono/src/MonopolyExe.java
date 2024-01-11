@@ -45,8 +45,7 @@ public class MonopolyExe extends JFrame {
     JPanel playerAssetsPanel;
     Boolean ReceivedCard = false;
     JPanel winGame;
-    
-    private Sound themeSound;
+    private Sound themeSound, rollSound, nextTurnSound, buySound, paySound, cardSound;
 
     public MonopolyExe() {
         
@@ -98,6 +97,8 @@ public class MonopolyExe extends JFrame {
         btnBuy = new JButton(new ImageIcon("Mono\\media\\Buy.png"));
         btnBuy.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
+		buySound = new Sound("media/paySound.wav");
+                buySound.play();
                 Player currentPlayer = players.get(nowPlaying);
                 infoConsole.setText("You bought "+gameBoard.getAllSquare().get(currentPlayer.getCurrentSquareNumber()).getName()+"\nPlease click next turn to continue");
                 currentPlayer.buyTitleDeed(currentPlayer.getCurrentSquareNumber());
@@ -117,6 +118,8 @@ public class MonopolyExe extends JFrame {
         btnPayRent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+		paySound = new Sound("media/paySound.wav");
+                paySound.play();
                 Player currentPlayer = players.get(nowPlaying);
                 Player ownerOfTheSquare = players.get((Player.ledger.get(currentPlayer.getCurrentSquareNumber())) == 1 ? 0 : 1);
         
@@ -139,6 +142,8 @@ public class MonopolyExe extends JFrame {
         btnGetCard.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
+		cardSound = new Sound("media/CardSound.wav");
+                cardSound.play();
                 int currentSquareNumber = players.get(nowPlaying).getCurrentSquareNumber();
                 if (currentSquareNumber == 4 || currentSquareNumber == 18) {
                     Card card = new Card(Card.CardType.COMMUNITY, (int) (Math.random() * 8));
@@ -352,6 +357,8 @@ public class MonopolyExe extends JFrame {
         btnNextTurn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				nextTurnSound = new Sound("media/ClickSound.wav");
+                		nextTurnSound.play();
 				btnRoll.setEnabled(true);
 				btnBuy.setEnabled(false);
 				btnPayRent.setEnabled(false);
