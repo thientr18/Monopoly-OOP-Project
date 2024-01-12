@@ -1,14 +1,15 @@
 package GUI;
 
 import javax.swing.*;
+
 import java.awt.*;
 
 public class GUI extends JFrame {
 
     public static void main(String[] args) {
         
-        ImageIcon image1 = new ImageIcon("Mono\\media\\Button.png");
-        ImageIcon rule = new ImageIcon("Mono\\media\\GameRule.png");
+        ImageIcon image1 = new ImageIcon("Mono\\media\\Image\\Button.png");
+        ImageIcon rule = new ImageIcon("Mono\\media\\Image\\GameRule.png");
 
         JFrame frame = new JFrame();
         frame.setTitle("MONOPOLY GAME");
@@ -21,7 +22,7 @@ public class GUI extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon background = new ImageIcon("Mono\\media\\gui-background.jpg");
+                ImageIcon background = new ImageIcon("Mono\\media\\Image\\gui-background.jpg");
                 Image image = background.getImage();
                 g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
             }

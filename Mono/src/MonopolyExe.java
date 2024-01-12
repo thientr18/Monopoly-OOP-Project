@@ -2,9 +2,9 @@ package src;
 
 import java.awt.CardLayout;
 import java.awt.Color;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -46,7 +46,7 @@ public class MonopolyExe extends JFrame{
     private Sound themeSound, rollSound, nextTurnSound, buySound, paySound, cardSound;
 
     public MonopolyExe(){
-        themeSound = new Sound("Mono\\media\\Sound_for_ThemeGame.wav");
+        themeSound = new Sound("Mono\\media\\Sound\\Sound_for_ThemeGame.wav");
         themeSound.loop();
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -91,10 +91,10 @@ public class MonopolyExe extends JFrame{
 /*
 ----------------------------------Button to control the game---------------------------------------------------------------------------------------------------------------------------------------
 */
-        btnBuy = new JButton(new ImageIcon("Mono\\media\\Buy.png"));
+        btnBuy = new JButton(new ImageIcon("Mono\\media\\Image\\Buy.png"));
         btnBuy.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                buySound = new Sound("Mono\\media\\paySound.wav");
+                buySound = new Sound("Mono\\media\\Sound\\paySound.wav");
                 buySound.play();
                 Player currentPlayer = players.get(nowPlaying);
                 infoConsole.setText("You bought "+gameBoard.getAllSquare().get(currentPlayer.getCurrentSquareNumber()).getName()+"\nPlease click next turn to continue");
@@ -110,11 +110,11 @@ public class MonopolyExe extends JFrame{
         right.add(btnBuy);
         btnBuy.setEnabled(false);
 
-        btnPayRent = new JButton(new ImageIcon("Mono\\media\\payRent.png"));
+        btnPayRent = new JButton(new ImageIcon("Mono\\media\\Image\\payRent.png"));
         btnPayRent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                paySound = new Sound("Mono\\media\\paySound.wav");
+                paySound = new Sound("Mono\\media\\Sound\\paySound.wav");
                 paySound.play();
                 Player currentPlayer = players.get(nowPlaying);
                 Player ownerOfTheSquare = players.get((Player.ledger.get(currentPlayer.getCurrentSquareNumber())) == 1 ? 0 : 1);
@@ -132,11 +132,11 @@ public class MonopolyExe extends JFrame{
         right.add(btnPayRent);
         btnPayRent.setEnabled(false);
         
-        btnGetCard = new JButton(new ImageIcon("Mono\\media\\getCard.png"));
+        btnGetCard = new JButton(new ImageIcon("Mono\\media\\Image\\getCard.png"));
         btnGetCard.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                cardSound = new Sound("Mono\\media\\CardSound.wav");
+                cardSound = new Sound("Mono\\media\\Sound\\CardSound.wav");
                 cardSound.play();
                 int currentSquareNumber = players.get(nowPlaying).getCurrentSquareNumber();
                 if (currentSquareNumber == 4 || currentSquareNumber == 18) {
@@ -157,11 +157,11 @@ public class MonopolyExe extends JFrame{
         right.add(btnGetCard);
         btnGetCard.setEnabled(false);
 
-        btnRoll = new JButton(new ImageIcon("Mono\\media\\Roll.png"));
+        btnRoll = new JButton(new ImageIcon("Mono\\media\\Image\\Roll.png"));
         btnRoll.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                rollSound = new Sound("Mono\\media\\rollSoundButton.wav");
+                rollSound = new Sound("Mono\\media\\Sound\\rollSoundButton.wav");
                 
                 if (nowPlaying == 0){                   
                     dice1.rollDice();
@@ -323,11 +323,11 @@ public class MonopolyExe extends JFrame{
         btnRoll.setBounds(125, 530, 150, 40);
         right.add(btnRoll);
 
-        btnNextTurn = new JButton(new ImageIcon("Mono\\media\\nextTurn.png"));
+        btnNextTurn = new JButton(new ImageIcon("Mono\\media\\Image\\nextTurn.png"));
         btnNextTurn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-                nextTurnSound = new Sound("Mono\\media\\ClickSound.wav");
+                nextTurnSound = new Sound("Mono\\media\\Sound\\ClickSound.wav");
                 nextTurnSound.play();
 				btnRoll.setEnabled(true);
 				btnBuy.setEnabled(false);
