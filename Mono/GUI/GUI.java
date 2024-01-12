@@ -1,15 +1,14 @@
 package GUI;
 
 import javax.swing.*;
-
 import java.awt.*;
 
 public class GUI extends JFrame {
 
     public static void main(String[] args) {
         
-        ImageIcon image1 = new ImageIcon("Mono\\media\\Image\\Button.png");
-        ImageIcon rule = new ImageIcon("Mono\\media\\Image\\GameRule.png");
+        ImageIcon image1 = new ImageIcon("media/Button.gif");
+        ImageIcon image2 = new ImageIcon("media/GameRule.png");
 
         JFrame frame = new JFrame();
         frame.setTitle("MONOPOLY GAME");
@@ -22,8 +21,8 @@ public class GUI extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon background = new ImageIcon("Mono\\media\\Image\\gui-background.jpg");
-                Image image = background.getImage();
+                ImageIcon imageIcon = new ImageIcon("media/echoImage.jpg");
+                Image image = imageIcon.getImage();
                 g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
             }
         };
@@ -35,18 +34,20 @@ public class GUI extends JFrame {
         JButton ruleButton = createButton("RULE", image1, 700, 450, backgroundPanel);
         JButton exitButton = createButton("EXIT", image1, 700, 530, backgroundPanel);
 
-        JButton returnButton = createButton("BACK", image1, 600, 600, backgroundPanel);
+        JButton returnButton = createButton("BACK", image1, 610, 610, backgroundPanel);
         returnButton.setVisible(false);
 
         JPanel rulePanel = new JPanel();
-        JLabel ruleLabel = new JLabel(rule);
+        JLabel ruleLabel = new JLabel(image2);
         rulePanel.add(ruleLabel);
-        rulePanel.setBounds(100, 100, 800, 500);
+        rulePanel.setBounds(10, 10, 900, 600);
         rulePanel.setVisible(false);
         backgroundPanel.add(rulePanel);
 
         startButton.addActionListener(e -> {
-            // Your start game logic here
+            MonopolyExe mono = new MonopolyExe();
+            mono.setVisible(true);
+            frame.setVisible(false);
         });
 
         ruleButton.addActionListener(e -> {
@@ -58,7 +59,7 @@ public class GUI extends JFrame {
         });
 
         exitButton.addActionListener(e -> System.exit(0));
-
+        
         returnButton.addActionListener(e -> {
             rulePanel.setVisible(false);
             startButton.setVisible(true);
@@ -66,7 +67,6 @@ public class GUI extends JFrame {
             ruleButton.setVisible(true);
             returnButton.setVisible(false);
         });
-
         frame.setVisible(true);
     }
 
@@ -78,8 +78,8 @@ public class GUI extends JFrame {
         button.setVerticalTextPosition(JButton.CENTER);
         button.setFont(new Font("Comic Sans", Font.BOLD, 34));
         button.setIconTextGap(-5);
-        button.setForeground(Color.BLACK);
-        button.setBackground(Color.YELLOW);
+        button.setForeground(Color.WHITE);
+        button.setBackground(new Color(255, 189, 89));
         button.setBorder(BorderFactory.createEtchedBorder());
         panel.add(button);
         return button;
