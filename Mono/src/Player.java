@@ -15,11 +15,12 @@ public class Player extends JPanel {
     private int playerNumber;
     JLabel lblPlayerNumber;
     static int totalPlayers = 0;
-    static HashMap<Integer, Integer> ledger = new HashMap<>();
+    static HashMap<Integer, Integer> ledger = new HashMap<Integer, Integer>();
 
     private int currentSquareNumber = 0; // Player's current lcation on (0-27). Initially zero
     private ArrayList<Integer> titilleDeeds = new ArrayList<Integer>(); // squares that the player owned
     private int wallet = 500; // Initial money
+
     
     public ArrayList<Integer> getTitleDeeds() {
         return titilleDeeds;
@@ -27,35 +28,44 @@ public class Player extends JPanel {
 
     public int getWallet () {
         return wallet;
-    } 
+    }
+
+    public void setWallet(int newWallet){
+        this.wallet = newWallet;
+    }
 
     public void withdrawFromWallet(int withdrawAmount) {
         if(withdrawAmount > wallet) {
-            System.out.println("Player " + playerNumber + "went bankrupt!");
+            
+            MonopolyExe.infoConsole.setText("Player " + playerNumber + "went bankrupt!");
             setVisible(false); // Loser
+            wallet = -1;
         }
         else wallet -= withdrawAmount;
+
     }
 
     public void depositToWallet(int depositAmount) {
         wallet += depositAmount;
-        System.out.println("Payday for player " + getPlayerNumber() + ". You earned $" + depositAmount + "!");
         MonopolyExe.infoConsole.setText("Payday for player " + getPlayerNumber() + ". You earned $" + depositAmount + "!");
     }
 
-    public void deductionToWallet(int depositAmount) {
+
+    public void payToWallet(int depositAmount) {
         wallet += depositAmount;
-        System.out.println("BAR CLUB paying for player " + getPlayerNumber() + ". You paid $" + depositAmount + "!");
-        MonopolyExe.infoConsole.setText("BAR CLUB paying for player " + getPlayerNumber() + ". You paid $" + depositAmount + "!");
     }
- 
+
     public void travelToSTART() {
         currentSquareNumber = 0;
-        System.out.println("You moved to START");
+        MonopolyExe.infoConsole.setText("You moved to START");
     }
 
     public int getCurrentSquareNumber() {
         return currentSquareNumber;
+    }
+
+    public void setCurrentSquareNumber(int newPosition){
+        this.currentSquareNumber = newPosition;
     }
 
     public int getPlayerNumber() {
@@ -95,6 +105,7 @@ public class Player extends JPanel {
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
     }
+
 
     int[] xLocationsOfPlayer1 = {19, 99, 179, 259, 339, 419, 499, 579,
                                 619, 619, 619, 619, 619, 619, 619,
