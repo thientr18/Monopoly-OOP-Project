@@ -11,7 +11,7 @@ public class GUI extends JFrame {
     public static void main(String[] args) {
         
         ImageIcon image1 = new ImageIcon("Mono\\media\\Image\\Button.png");
-        ImageIcon image2 = new ImageIcon("Mono\\media\\GameRule.png");
+        ImageIcon image2 = new ImageIcon("Mono\\media\\Image\\GameRule.png");
 
         JFrame frame = new JFrame();
         frame.setTitle("MONOPOLY GAME");
