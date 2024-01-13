@@ -50,9 +50,14 @@ public class Player extends JPanel {
         MonopolyExe.infoConsole.setText("Payday for player " + getPlayerNumber() + ". You earned $" + depositAmount + "!");
     }
 
+    public void deductionToWallet(int depositAmount) {
+        wallet += depositAmount;
+    }
+
 
     public void payToWallet(int depositAmount) {
         wallet += depositAmount;
+        MonopolyExe.infoConsole.setText("Player " + getPlayerNumber() + "moved to BAR. You paid $" + depositAmount + "!");
     }
 
     public void travelToSTART() {

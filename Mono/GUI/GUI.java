@@ -1,6 +1,9 @@
 package GUI;
 
 import javax.swing.*;
+
+import src.MonopolyExe;
+
 import java.awt.*;
 
 public class GUI extends JFrame {
