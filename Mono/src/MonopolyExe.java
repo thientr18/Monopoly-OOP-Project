@@ -18,6 +18,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import GUI.GUI;
+
 public class MonopolyExe extends JFrame{
     private JPanel contentIncluder;
     static int turnCounter = 0;
@@ -489,7 +491,7 @@ public class MonopolyExe extends JFrame{
         btnExit = new JButton(new ImageIcon("Mono\\media\\ExitButton.png"));
         btnExit.addActionListener(e -> {
             dispose();
-            Menu.main(null);          
+            GUI.main(null);          
         });
         btnExit.setBounds(115, 540, 170, 50);
         btnExit.setEnabled(true);

@@ -10,8 +10,8 @@ public class GUI extends JFrame {
 
     public static void main(String[] args) {
         
-        ImageIcon image1 = new ImageIcon("media/Button.gif");
-        ImageIcon image2 = new ImageIcon("media/GameRule.png");
+        ImageIcon image1 = new ImageIcon("Mono\\media\\Image\\Button.png");
+        ImageIcon image2 = new ImageIcon("Mono\\media\\GameRule.png");
 
         JFrame frame = new JFrame();
         frame.setTitle("MONOPOLY GAME");
@@ -24,7 +24,7 @@ public class GUI extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon imageIcon = new ImageIcon("media/echoImage.jpg");
+                ImageIcon imageIcon = new ImageIcon("Mono\\media\\Image\\gui-background.jpg");
                 Image image = imageIcon.getImage();
                 g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
             }
@@ -70,6 +70,7 @@ public class GUI extends JFrame {
             ruleButton.setVisible(true);
             returnButton.setVisible(false);
         });
+        
         frame.setVisible(true);
     }
 
