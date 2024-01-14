@@ -54,7 +54,7 @@ public class Board extends JPanel {
 
             "Nghe An",
             "Ha Tinh",
-            "Air Plane", 
+            "Air Port", 
             "Chance", 
             "Quang Tri",
             "Quang Binh", 
@@ -62,7 +62,7 @@ public class Board extends JPanel {
 
             "Hue", 
             "Quang Nam", 
-            "Market Central",
+            "Mega Mall",
             "Community", 
             "Vung Tau",
             "Tay Ninh", 
@@ -277,24 +277,15 @@ public class Board extends JPanel {
          sl5.setRentPrice(250);
 
         JLabel labelMonopoly = new JLabel("MONOPOLY"){
+            JLabel labelMonopoly = new JLabel("MONOPOLY"){
             protected void paintComponent(Graphics g) {
-                Graphics2D g2 = (Graphics2D)g;
-                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                AffineTransform aT = g2.getTransform();
-                Shape oldShape = g2.getClip();
-                double x = getWidth()/2.0;
-                double y = getHeight()/2.0;
-                aT.rotate(Math.toRadians(0), x, y);
-                g2.setTransform(aT);
-                g2.setClip(oldShape);
                 super.paintComponent(g);
+                ImageIcon monopoly = new ImageIcon("media/Monomoly_Board.png");
+                Image image = monopoly.getImage();
+                g.drawImage(image, 0, 0, 640, 640, this);
             }
         };
-        labelMonopoly.setForeground(Color.WHITE);
-        labelMonopoly.setBackground(Color.RED);
-        labelMonopoly.setOpaque(true);
-        labelMonopoly.setHorizontalAlignment(SwingConstants.CENTER);
-        labelMonopoly.setBounds(194,297,260,54);
+        labelMonopoly.setBounds(4,4,648,648);
         this.add(labelMonopoly);
     }
 }
