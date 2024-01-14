@@ -456,7 +456,9 @@ public class MonopolyExe extends JFrame{
         btnPlayAgain.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 dispose();
-                MonopolyExe.main(null);
+                MonopolyExe mono = new MonopolyExe();
+		mono.setVisible(true);
+		mono.setResizable(false);
 
                 // in processing--------------------------------------
                 // nowPlaying = 0;
