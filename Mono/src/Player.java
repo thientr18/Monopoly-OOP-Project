@@ -36,10 +36,9 @@ public class Player extends JPanel {
 
     public void withdrawFromWallet(int withdrawAmount) {
         if(withdrawAmount > wallet) {
-            
-            MonopolyExe.infoConsole.setText("Player " + playerNumber + "went bankrupt!");
+		wallet -= withdrawAmount;
+		ledger.clear();
             setVisible(false); // Loser
-            wallet = -1;
         }
         else wallet -= withdrawAmount;
 
