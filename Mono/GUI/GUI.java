@@ -9,7 +9,7 @@ import java.awt.*;
 public class GUI extends JFrame {
 
     public static void main(String[] args) {
-        Sound theme = new Sound("Mono\\media\\themeMenu.wav");
+        Sound theme = new Sound("Mono\\media\\Sound\\themeMenu.wav");
         theme.loop();
         
         ImageIcon image1 = new ImageIcon("Mono\\media\\Image\\Button.png");
