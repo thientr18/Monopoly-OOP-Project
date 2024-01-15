@@ -78,7 +78,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](Mono/media/Image/Monomoly_Board.png)
 
 Welcome to the Monopoly Game Project, a dynamic endeavor undertaken as part of the Object-Oriented Programming course. This project is a collaborative effort aimed at developing a digital adaptation of the classic Monopoly board game using the Java programming language.
 
