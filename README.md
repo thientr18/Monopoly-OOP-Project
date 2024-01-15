@@ -55,6 +55,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li><a href="#team-member">Team Member</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -83,7 +84,7 @@
 Welcome to the Monopoly Game Project, a dynamic endeavor undertaken as part of the Object-Oriented Programming course. This project is a collaborative effort aimed at developing a digital adaptation of the classic Monopoly board game using the Java programming language.
 
 <!-- TEAM MEMBERS -->
-## Team Members
+### Team Members
 
 | Order |         Name          |     ID      |                  Email                  |                       Github account                        |                              Facebook                              |
 | :---: | :-------------------: | :---------: |:---------------------------------------:| :---------------------------------------------------------: | :----------------------------------------------------------------: |
