@@ -82,6 +82,13 @@
 
 Welcome to the Monopoly Game Project, a dynamic endeavor undertaken as part of the Object-Oriented Programming course. This project is a collaborative effort aimed at developing a digital adaptation of the classic Monopoly board game using the Java programming language.
 
+| Order |         Name          |     ID      |                  Email                  |                       Github account                        |                              Facebook                              |
+| :---: | :-------------------: | :---------: |:---------------------------------------:| :---------------------------------------------------------: | :----------------------------------------------------------------: |
+|   1   | Ung Huynh Phuc | ITITIU21284 |  ITITIU21284@student.hcmiu.edu.vn | [@uhphuc](https://github.com/uhphuc) | [Ưng Huỳnh Phúc ]([https://www.facebook.com/nguyenhongson0305outlook](https://www.facebook.com/hwiifoo.611.03)) |
+|   2   | Tran Thien | ITITIU21318 |  ITITIU21318@student.hcmiu.edu.vn | [@thientr18 ](https://github.com/thientr18 ) | [Trần Thiện ](https://www.facebook.com/thien18803/) |
+|   3   | Nguyen Khoa Minh Toan | ITITIU21331 |  ITITIU21331@student.hcmiu.edu.vn | [@mtonzz](https://github.com/mtonzz) | [Toàn Minh Nguyễn ](https://www.facebook.com/profile.php?id=100005143006321) |
+|   4   | Mai Duc Thien | ITITIU21319 | ITITIU21319@student.hcmiu.edu.vn | [@Zuntt](https://github.com/Zuntt) | [Mai Đức Thiện](https://www.facebook.com/mdthien1211) |
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
