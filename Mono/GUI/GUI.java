@@ -9,6 +9,8 @@ import java.awt.*;
 public class GUI extends JFrame {
 
     public static void main(String[] args) {
+        Sound theme = new Sound("Mono\\media\\themeMenu.wav");
+        theme.loop();
         
         ImageIcon image1 = new ImageIcon("Mono\\media\\Image\\Button.png");
         ImageIcon image2 = new ImageIcon("Mono\\media\\Image\\GameRule.png");
