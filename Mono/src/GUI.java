@@ -1,9 +1,6 @@
-package GUI;
+package src;
 
 import javax.swing.*;
-
-import src.MonopolyExe;
-import src.Sound;
 
 import java.awt.*;
 
