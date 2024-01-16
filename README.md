@@ -35,10 +35,10 @@
   <p align="center">
     A student project of oriented object programming course!
     <br />
-    <a href="https://github.com/thientr18/Monopoly-OOP-Project/issues"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/thientr18/Monopoly-OOP-Project/blob/main/Report/Group%2014%20-%20Monopoly%20Game.pdf"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/thientr18/Monopoly-OOP-Project/issues">View Demo</a>
+    <a href="https://github.com/thientr18/Monopoly-OOP-Project/tree/main/MonoView Demo</a>
     ·
     <a href="https://github.com/thientr18/Monopoly-OOP-Project/issues">Report Bug</a>
     ·
