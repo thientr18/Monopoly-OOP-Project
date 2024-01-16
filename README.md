@@ -55,7 +55,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#team-members">Team Member</a></li>
+        <li><a href="#team-members">Team Members</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -126,14 +126,14 @@ Before diving into the project, make sure you have the following prerequisites i
 2. Compile and Run
 * For contributors
    ```sh
-   javac -cp .:Mono\src\MonopolyExe.java
-   java -cp .:Mono\src\MonopolyExe
+   javac -cp .:Mono\GUI\GUI.java
+   java -cp .:Mono\GUI\GUI
 
    ```
 * For users
    ```sh
-   javac MonopolyExe.java
-   java MonopolyExe
+   javac GUI.java
+   java GUI
 
    ```
 
