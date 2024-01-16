@@ -126,8 +126,8 @@ Before diving into the project, make sure you have the following prerequisites i
 2. Compile and Run
 * For contributors
    ```sh
-   javac -cp .:Mono\GUI\GUI.java
-   java -cp .:Mono\GUI\GUI
+   javac -cp .:Mono\src\GUI.java
+   java -cp .:Mono\src\GUI
 
    ```
 * For users
