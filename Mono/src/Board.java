@@ -3,11 +3,13 @@ package src;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -277,10 +279,9 @@ public class Board extends JPanel {
          sl5.setRentPrice(250);
 
         JLabel labelMonopoly = new JLabel("MONOPOLY"){
-            JLabel labelMonopoly = new JLabel("MONOPOLY"){
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon monopoly = new ImageIcon("media/Monomoly_Board.png");
+                ImageIcon monopoly = new ImageIcon("Mono\\media\\Image\\Monomoly_Board.png");
                 Image image = monopoly.getImage();
                 g.drawImage(image, 0, 0, 640, 640, this);
             }
