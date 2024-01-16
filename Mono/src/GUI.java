@@ -7,11 +7,11 @@ import java.awt.*;
 public class GUI extends JFrame {
 
     public static void main(String[] args) {
-        Sound theme = new Sound("Mono\\media\\Sound\\themeMenu.wav");
+        Sound theme = new Sound("Monopoly-OOP-Project-main\\Mono\\media\\Sound\\themeMenu.wav");
         theme.loop();
         
-        ImageIcon image1 = new ImageIcon("Mono\\media\\Image\\Button.png");
-        ImageIcon image2 = new ImageIcon("Mono\\media\\Image\\GameRule.png");
+        ImageIcon image1 = new ImageIcon("Monopoly-OOP-Project-main\\Mono\\media\\Image\\Button.png");
+        ImageIcon image2 = new ImageIcon("Monopoly-OOP-Project-main\\Mono\\media\\Image\\GameRule.png");
 
         JFrame frame = new JFrame();
         frame.setTitle("MONOPOLY GAME");
@@ -24,7 +24,7 @@ public class GUI extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon imageIcon = new ImageIcon("Mono\\media\\Image\\gui-background.jpg");
+                ImageIcon imageIcon = new ImageIcon("Monopoly-OOP-Project-main\\Mono\\media\\Image\\gui-background.jpg");
                 Image image = imageIcon.getImage();
                 g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
             }
