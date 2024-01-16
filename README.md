@@ -55,7 +55,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#team-members">Team Member</a></li>
+        <li><a href="#team-members">Team Members</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
