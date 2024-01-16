@@ -18,8 +18,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-import GUI.GUI;
-
 public class MonopolyExe extends JFrame{
     private JPanel contentIncluder;
     static int turnCounter = 0;
@@ -109,10 +107,10 @@ public class MonopolyExe extends JFrame{
 /*
 ----------------------------------Button to control the game---------------------------------------------------------------------------------------------------------------------------------------
 */
-        btnBuy = new JButton(new ImageIcon("media\\Buy.png"));
+        btnBuy = new JButton(new ImageIcon("Mono\\media\\Image\\Buy.png"));
         btnBuy.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                buySound = new Sound("media\\paySound.wav");
+                buySound = new Sound("Mono\\media\\Sound\\paySound.wav");
                 buySound.play();
                 Player currentPlayer = players.get(nowPlaying);
                 infoConsole.setText("You bought "+gameBoard.getAllSquare().get(currentPlayer.getCurrentSquareNumber()).getName()+"\nPlease click next turn to continue");
@@ -129,11 +127,11 @@ public class MonopolyExe extends JFrame{
         btnBuy.setEnabled(false);
 
 
-        btnPayRent = new JButton(new ImageIcon("media\\payRent.png"));
+        btnPayRent = new JButton(new ImageIcon("Mono\\media\\Image\\payRent.png"));
         btnPayRent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                paySound = new Sound("media\\paySound.wav");
+                paySound = new Sound("Mono\\media\\Sound\\paySound.wav");
                 paySound.play();
                 Player currentPlayer = players.get(nowPlaying);
                 Player ownerOfTheSquare = players.get((Player.ledger.get(currentPlayer.getCurrentSquareNumber())) == 1 ? 0 : 1);
@@ -160,11 +158,11 @@ public class MonopolyExe extends JFrame{
         right.add(btnPayRent);
         btnPayRent.setEnabled(false);
 
-        btnGetCard = new JButton(new ImageIcon("media\\getCard.png"));
+        btnGetCard = new JButton(new ImageIcon("Mono\\media\\Image\\getCard.png"));
         btnGetCard.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                cardSound = new Sound("media\\CardSound.wav");
+                cardSound = new Sound("Mono\\media\\Sound\\CardSound.wav");
                 cardSound.play();
                 int currentSquareNumber = players.get(nowPlaying).getCurrentSquareNumber();
                 if (currentSquareNumber == 4 || currentSquareNumber == 18) {
@@ -196,11 +194,11 @@ public class MonopolyExe extends JFrame{
 
 
 
-        btnRoll = new JButton(new ImageIcon("media\\Roll.png"));
+        btnRoll = new JButton(new ImageIcon("Mono\\media\\Image\\Roll.png"));
         btnRoll.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                rollSound = new Sound("media\\rollSoundButton.wav");
+                rollSound = new Sound("Mono\\media\\Sound\\rollSoundButton.wav");
 
                 if (doubleDiceP1 || doubleDiceP2 ){
                     infoConsole.setText("Please click next turn, and you can continue");    
@@ -359,34 +357,34 @@ public class MonopolyExe extends JFrame{
         btnRoll.setBounds(125, 530, 150, 40);
         right.add(btnRoll);
 
-        btnNextTurn = new JButton(new ImageIcon("media\\nextTurn.png"));
+        btnNextTurn = new JButton(new ImageIcon("Mono\\media\\Image\\nextTurn.png"));
         btnNextTurn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-                nextTurnSound = new Sound("media\\ClickSound.wav");
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                nextTurnSound = new Sound("Mono\\media\\Sound\\ClickSound.wav");
                 nextTurnSound.play();
-				btnRoll.setEnabled(true);
-				btnBuy.setEnabled(false);
-				btnPayRent.setEnabled(false);
-				btnNextTurn.setEnabled(false);
-				
-				if(nowPlaying == 0 && doubleDiceP1) {
-					nowPlaying = 0;
-					doubleDiceP1 = false;
-				} else if(nowPlaying == 1 && doubleDiceP2) {
-					nowPlaying = 1;
-					doubleDiceP2 = false;
-				} else if(!doubleDiceP1 && !doubleDiceP2) {
-					nowPlaying = (nowPlaying + 1) % 2;
-				}
+                btnRoll.setEnabled(true);
+                btnBuy.setEnabled(false);
+                btnPayRent.setEnabled(false);
+                btnNextTurn.setEnabled(false);
+                
+                if(nowPlaying == 0 && doubleDiceP1) {
+                    nowPlaying = 0;
+                    doubleDiceP1 = false;
+                } else if(nowPlaying == 1 && doubleDiceP2) {
+                    nowPlaying = 1;
+                    doubleDiceP2 = false;
+                } else if(!doubleDiceP1 && !doubleDiceP2) {
+                    nowPlaying = (nowPlaying + 1) % 2;
+                }
 
 
-				c1.show(playerAssetsPanel, ""+(nowPlaying==0 ? 1 : 2)); // maps 0 to 1 and 1 to 2
-				updatePanelPlayer1TextArea();
-				updatePanelPlayer2TextArea();
-				infoConsole.setText("It's now player "+(nowPlaying==0 ? 1 : 2)+"'s turn!");
-			}
-		});
+                c1.show(playerAssetsPanel, ""+(nowPlaying==0 ? 1 : 2)); // maps 0 to 1 and 1 to 2
+                updatePanelPlayer1TextArea();
+                updatePanelPlayer2TextArea();
+                infoConsole.setText("It's now player "+(nowPlaying==0 ? 1 : 2)+"'s turn!");
+            }
+        });
         btnNextTurn.setBounds(125, 580, 150, 40);
         right.add(btnNextTurn);
         btnNextTurn.setEnabled(false);
