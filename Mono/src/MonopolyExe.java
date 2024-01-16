@@ -48,7 +48,7 @@ public class MonopolyExe extends JFrame{
     private Sound themeSound, rollSound, nextTurnSound, buySound, paySound, cardSound;
 
     public MonopolyExe(){
-        themeSound = new Sound("Mono\\media\\Sound\\Sound_for_ThemeGame.wav");
+        themeSound = new Sound("Monopoly-OOP-Project-main\\Mono\\media\\Sound\\Sound_for_ThemeGame.wav");
         themeSound.loop();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -106,10 +106,10 @@ public class MonopolyExe extends JFrame{
 /*
 ----------------------------------Button to control the game---------------------------------------------------------------------------------------------------------------------------------------
 */
-        btnBuy = new JButton(new ImageIcon("Mono\\media\\Image\\Buy.png"));
+        btnBuy = new JButton(new ImageIcon("Monopoly-OOP-Project-main\\Mono\\media\\Image\\Buy.png"));
         btnBuy.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                buySound = new Sound("Mono\\media\\Sound\\paySound.wav");
+                buySound = new Sound("Monopoly-OOP-Project-main\\Mono\\media\\Sound\\paySound.wav");
                 buySound.play();
                 Player currentPlayer = players.get(nowPlaying);
                 infoConsole.setText("You bought "+gameBoard.getAllSquare().get(currentPlayer.getCurrentSquareNumber()).getName()+"\nPlease click next turn to continue");
@@ -126,11 +126,11 @@ public class MonopolyExe extends JFrame{
         btnBuy.setEnabled(false);
 
 
-        btnPayRent = new JButton(new ImageIcon("Mono\\media\\Image\\payRent.png"));
+        btnPayRent = new JButton(new ImageIcon("Monopoly-OOP-Project-main\\Mono\\media\\Image\\payRent.png"));
         btnPayRent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                paySound = new Sound("Mono\\media\\Sound\\paySound.wav");
+                paySound = new Sound("Monopoly-OOP-Project-main\\Mono\\media\\Sound\\paySound.wav");
                 paySound.play();
                 Player currentPlayer = players.get(nowPlaying);
                 Player ownerOfTheSquare = players.get((Player.ledger.get(currentPlayer.getCurrentSquareNumber())) == 1 ? 0 : 1);
@@ -157,7 +157,7 @@ public class MonopolyExe extends JFrame{
         right.add(btnPayRent);
         btnPayRent.setEnabled(false);
 
-        btnGetCard = new JButton(new ImageIcon("Mono\\media\\Image\\getCard.png"));
+        btnGetCard = new JButton(new ImageIcon("Monopoly-OOP-Project-main\\Mono\\media\\Image\\getCard.png"));
         btnGetCard.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
@@ -193,11 +193,11 @@ public class MonopolyExe extends JFrame{
 
 
 
-        btnRoll = new JButton(new ImageIcon("Mono\\media\\Image\\Roll.png"));
+        btnRoll = new JButton(new ImageIcon("Monopoly-OOP-Project-main\\Mono\\media\\Image\\Roll.png"));
         btnRoll.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                rollSound = new Sound("Mono\\media\\Sound\\rollSoundButton.wav");
+                rollSound = new Sound("Monopoly-OOP-Project-main\\Mono\\media\\Sound\\rollSoundButton.wav");
 
                 if (doubleDiceP1 || doubleDiceP2 ){
                     infoConsole.setText("Please click next turn, and you can continue");    
@@ -353,11 +353,11 @@ public class MonopolyExe extends JFrame{
         btnRoll.setBounds(125, 530, 150, 40);
         right.add(btnRoll);
 
-        btnNextTurn = new JButton(new ImageIcon("Mono\\media\\Image\\nextTurn.png"));
+        btnNextTurn = new JButton(new ImageIcon("Monopoly-OOP-Project-main\\Mono\\media\\Image\\nextTurn.png"));
         btnNextTurn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                nextTurnSound = new Sound("Mono\\media\\Sound\\ClickSound.wav");
+                nextTurnSound = new Sound("Monopoly-OOP-Project-main\\Mono\\media\\Sound\\ClickSound.wav");
                 nextTurnSound.play();
                 btnRoll.setEnabled(true);
                 btnBuy.setEnabled(false);
@@ -441,7 +441,7 @@ public class MonopolyExe extends JFrame{
 
 
         // WIN GAME 
-        btnPlayAgain = new JButton(new ImageIcon("Mono\\media\\Image\\PlayAgainButton.png"));
+        btnPlayAgain = new JButton(new ImageIcon("Monopoly-OOP-Project-main\\Mono\\media\\Image\\PlayAgainButton.png"));
         btnPlayAgain.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 dispose();
@@ -454,7 +454,7 @@ public class MonopolyExe extends JFrame{
         btnPlayAgain.setEnabled(true);
 
         
-        btnExit = new JButton(new ImageIcon("Mono\\media\\Image\\ExitButton.png"));
+        btnExit = new JButton(new ImageIcon("Monopoly-OOP-Project-main\\Mono\\media\\Image\\ExitButton.png"));
         btnExit.addActionListener(e -> {
             dispose();
             GUI.main(null);          
@@ -467,7 +467,7 @@ public class MonopolyExe extends JFrame{
             protected void paintComponent(Graphics g){
                 super.paintComponent(g);
                 themeSound.stop();
-                ImageIcon winGameImage1 = new ImageIcon("Mono\\media\\Image\\Player1Win.gif");
+                ImageIcon winGameImage1 = new ImageIcon("Monopoly-OOP-Project-main\\Mono\\media\\Image\\Player1Win.gif");
                 Image image1 = winGameImage1.getImage();
                 g.drawImage(image1,0, 0, getWidth(), getHeight(), this);
                 this.add(btnExit);
@@ -482,7 +482,7 @@ public class MonopolyExe extends JFrame{
             protected void paintComponent(Graphics g){
                 super.paintComponent(g);
                 themeSound.stop();
-                ImageIcon winGameImage2 = new ImageIcon("Mono\\media\\Image\\Player2Win.gif");
+                ImageIcon winGameImage2 = new ImageIcon("Monopoly-OOP-Project-main\\Mono\\media\\Image\\Player2Win.gif");
                 Image image2 = winGameImage2.getImage();
                 g.drawImage(image2,0, 0, getWidth(), getHeight(), this);
                 this.add(btnExit);
