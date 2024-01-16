@@ -32,7 +32,6 @@ public class MonopolyExe extends JFrame{
     static int nowPlaying = 0;
     ArrayList<Player> players = new ArrayList<Player>();
     static JTextArea infoConsole;
-    public static Object endGameLabel;
     Board gameBoard;
     JTextArea panelPlayer1TextArea;
     JTextArea panelPlayer2TextArea;
@@ -77,9 +76,9 @@ public class MonopolyExe extends JFrame{
         players.add(player2);
         layeredPane.add(player2, Integer.valueOf(1));
 
-        Dice dice1 = new Dice(279, 426, 40, 40);
+        Dice dice1 = new Dice(305, 440, 40, 40);
         layeredPane.add(dice1, Integer.valueOf(1));
-        Dice dice2 = new Dice(329, 426, 40, 40);
+        Dice dice2 = new Dice(355, 440, 40, 40);
         layeredPane.add(dice2, Integer.valueOf(1));
 
         JPanel right = new JPanel();
@@ -339,12 +338,9 @@ public class MonopolyExe extends JFrame{
                 updatePanelPlayer2TextArea();
 
                 if (gameBoard.getUnableBuySquares().contains(gameBoard.getAllSquare().get(currentPlayer.getCurrentSquareNumber()))){
-                    
                     if (gameBoard.getCardSquares().contains(gameBoard.getAllSquare().get(currentPlayer.getCurrentSquareNumber()))){
                         infoConsole.setText("Get your card!");
                     }
-                    else
-                        infoConsole.setText("Please click next turn");
                 }
                 
                 
@@ -452,31 +448,6 @@ public class MonopolyExe extends JFrame{
                 MonopolyExe mono = new MonopolyExe();
 		mono.setVisible(true);
 		mono.setResizable(false);
-
-                // in processing--------------------------------------
-                // nowPlaying = 0;
-                // player1.setWallet(500);
-                // player2.setWallet(500);
-                // player1.setCurrentSquareNumber(0);
-                // player1.getCurrentSquareNumber();
-                // player2.setCurrentSquareNumber(0);
-                // player2.getCurrentSquareNumber();
-                // dice1.setFaceDice(1);
-                // dice2.setFaceDice(1);
-                // right.setVisible(true);
-
-
-                // player1.setVisible(true);
-                // player2.setVisible(true);
-                // btnBuy.setEnabled(false);
-                // btnPayRent.setEnabled(false);
-                // btnGetCard.setEnabled(false);
-                // btnNextTurn.setEnabled(false);
-                // btnRoll.setEnabled(true);
-
-                // win1.setVisible(false);
-                // win2.setVisible(false);
-                //-------------------------
             }
         });
         btnPlayAgain.setBounds(115, 470, 170, 50);
