@@ -141,7 +141,7 @@ public class Player extends JPanel {
         currentSquareNumber = targetSquare;
 
         if (targetSquare == 7) {
-            deductionToWallet(-50);
+            deductionToWallet(-25);
         }
 
         if (targetSquare == 21) {
