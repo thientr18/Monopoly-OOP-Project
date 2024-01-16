@@ -18,12 +18,18 @@ public class Player extends JPanel {
     static HashMap<Integer, Integer> ledger = new HashMap<Integer, Integer>();
 
     private int currentSquareNumber = 0; // Player's current lcation on (0-27). Initially zero
-    private ArrayList<Integer> titilleDeeds = new ArrayList<Integer>(); // squares that the player owned
+    public ArrayList<Integer> titilleDeeds = new ArrayList<Integer>(); // squares that the player owned
+
     private int wallet = 500; // Initial money
 
     
+
     public ArrayList<Integer> getTitleDeeds() {
         return titilleDeeds;
+    }
+
+    public void setTitleDeed(ArrayList<Integer> newTitleDeed){
+        this.titilleDeeds = newTitleDeed;
     }
 
     public int getWallet () {
@@ -35,12 +41,16 @@ public class Player extends JPanel {
     }
 
     public void withdrawFromWallet(int withdrawAmount) {
+        
         if(withdrawAmount > wallet) {
-		wallet -= withdrawAmount;
-		ledger.clear();
-            setVisible(false); // Loser
+            wallet -= withdrawAmount;
+            ledger.clear();
+            // player lose
+            setVisible(false); 
         }
-        else wallet -= withdrawAmount;
+        else{
+            wallet -= withdrawAmount;
+        }
 
     }
 
@@ -49,14 +59,9 @@ public class Player extends JPanel {
         MonopolyExe.infoConsole.setText("Payday for player " + getPlayerNumber() + ". You earned $" + depositAmount + "!");
     }
 
-    public void deductionToWallet(int depositAmount) {
-        wallet += depositAmount;
-    }
-
 
     public void payToWallet(int depositAmount) {
         wallet += depositAmount;
-        MonopolyExe.infoConsole.setText("Player " + getPlayerNumber() + "moved to BAR. You paid $" + depositAmount + "!");
     }
 
     public void travelToSTART() {
@@ -110,7 +115,6 @@ public class Player extends JPanel {
         super.paintComponent(graphics);
     }
 
-
     int[] xLocationsOfPlayer1 = {19, 99, 179, 259, 339, 419, 499, 579,
                                 619, 619, 619, 619, 619, 619, 619,
                                 499, 419, 339, 259, 179, 99, 19,
@@ -137,18 +141,27 @@ public class Player extends JPanel {
         }
 
         int targetSquare = (currentSquareNumber + dicesTotal) % 28;
-        
         currentSquareNumber = targetSquare;
 
+        if(targetSquare == 14){
+            MonopolyExe.infoConsole.setText("Free Parking, please click next turn");
+        }
+
         if (targetSquare == 7) {
-            deductionToWallet(-50);
+            if (this.getWallet()< 50){
+                payToWallet(-this.getWallet());
+                MonopolyExe.infoConsole.setText("You lose all your money for BAR");
+            }
+            else{
+                payToWallet(-50); 
+                MonopolyExe.infoConsole.setText("You lose $50 for BAR");
+            }
         }
 
         if (targetSquare == 21) {
             targetSquare = 0;
             currentSquareNumber = 0;
-            MonopolyExe.infoConsole.setText("content here");
-            System.out.println("Moved to START");
+            MonopolyExe.infoConsole.setText("Moved to START");
         }
 
         if (MonopolyExe.nowPlaying == 0) {
@@ -158,6 +171,7 @@ public class Player extends JPanel {
             this.setLocation(xLocationsOfPlayer2[targetSquare], yLocationsOfPlayer2[targetSquare]);
         }
     }
+
 /*
  * By comparing player's coordinates according to the board, we will get it's
  * (1) current square number
