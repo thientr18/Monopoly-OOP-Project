@@ -54,6 +54,7 @@ public class GUI extends JFrame {
             MonopolyExe mono = new MonopolyExe();
             mono.setVisible(true);
             frame.setVisible(false);
+            theme.stop();
         });
 
         ruleButton.addActionListener(e -> {
