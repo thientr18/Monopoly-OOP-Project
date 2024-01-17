@@ -276,7 +276,7 @@ public class Board extends JPanel {
         JLabel labelMonopoly = new JLabel("MONOPOLY"){
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon monopoly = new ImageIcon("Monopoly-OOP-Project-main\\Mono\\media\\Image\\Monomoly_Board.png");
+                ImageIcon monopoly = new ImageIcon("Mono\\media\\Image\\Monomoly_Board.png");
                 Image image = monopoly.getImage();
                 g.drawImage(image, 0, 0, 640, 640, this);
             }
